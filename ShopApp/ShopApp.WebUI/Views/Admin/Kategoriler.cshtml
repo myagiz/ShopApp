@@ -1,0 +1,45 @@
+﻿@using ShopApp.WebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@using ShopApp.WebUI.Helper
+@model PagedList<tblKategoriler>
+@{
+    ViewBag.Title = "Kategoriler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h7><a href="/admin/kategoriekle/" class="badge badge-light">Kategori Ekle</a></h7>
+<hr />
+<p>Tüm kategoriler listelenmiştir.</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Kategori Adı</th>
+                <th scope="col">Açıklama</th>
+                <th scope="col">Resim</th>
+                <th scope="col">Düzenle</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        @foreach (var p in Model)
+        {
+            ///admin/kategoriduzenle/@SeoHelper.ToSeoUrl(p.ad).ToLower()-@p.id
+            <tbody>
+                <tr>
+                    <th scope="row">#@p.id</th>
+                    <td>@p.ad</td>
+                    <td>@p.aciklama</td>
+                    <td><img src="@p.resimUrl" width="150" height="75" /></td>
+                    <td><a href="/admin/kategoriduzenle/@SeoHelper.ToSeoUrl(p.ad).ToLower()-@p.id" class="btn btn-dark">Düzenle</a></td>
+                    <td>@Html.ActionLink("Sil", "KategoriSil", new { id = p.id }, new { @class = "btn btn-light", onclick = "return confirm('Kategori Silmek İstediğinize Emin Misiniz?')" })</td>
+                </tr>
+            </tbody>
+        }
+    </table>
+    <ul class="pagination pagination-sm">
+        @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Kategoriler", new { sayfa }))
+    </ul>
+</div>
+

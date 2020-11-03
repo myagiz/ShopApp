@@ -1,0 +1,6 @@
+C:\Users\user\source\repos\ShopApp\ShopApp\ShopApp.DataAccess\bin\Debug\ShopApp.DataAccess.dll
+C:\Users\user\source\repos\ShopApp\ShopApp\ShopApp.DataAccess\bin\Debug\ShopApp.DataAccess.pdb
+C:\Users\user\source\repos\ShopApp\ShopApp\ShopApp.DataAccess\obj\Debug\ShopApp.DataAccess.csprojAssemblyReference.cache
+C:\Users\user\source\repos\ShopApp\ShopApp\ShopApp.DataAccess\obj\Debug\ShopApp.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ShopApp\ShopApp\ShopApp.DataAccess\obj\Debug\ShopApp.DataAccess.dll
+C:\Users\user\source\repos\ShopApp\ShopApp\ShopApp.DataAccess\obj\Debug\ShopApp.DataAccess.pdb

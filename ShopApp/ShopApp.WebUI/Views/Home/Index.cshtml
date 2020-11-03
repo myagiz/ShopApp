@@ -1,0 +1,39 @@
+﻿@using ShopApp.WebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@using ShopApp.WebUI.Helper
+@model PagedList<tblUrunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+
+    <div class="alert alert-dark" role="alert">
+       <a class="alert-link">SON EKLENEN ÜRÜNLER</a>
+    </div>
+    <div class="clear"></div>
+
+  
+
+
+@foreach (var p in Model)
+{
+
+
+    <div class="grid_1_of_4 images_1_of_4">
+        <a href="../Shared/preview.html"><img src="@p.resimUrl" width="250" height="250" /></a>
+        <h2>@Html.Raw(p.ad.Substring(0, Math.Min(p.ad.Length, 15)))... </h2>
+        <div class="price-details">
+            <div class="price-number">
+                <p><span class="rupees">@p.fiyat TL</span></p>
+            </div>
+            <div class="add-cart">
+                <h4><a href="@p.id">İncele</a></h4>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+}
+

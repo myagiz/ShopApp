@@ -1,0 +1,1388 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DB4FD40E-FF25-46EB-841A-41F0C3409B2F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShopApp.WebUI</RootNamespace>
+    <AssemblyName>ShopApp.WebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44321</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminPanelFiles\assets\css\animate.css" />
+    <Content Include="AdminPanelFiles\assets\css\app-style.css" />
+    <Content Include="AdminPanelFiles\assets\css\bootstrap.css" />
+    <Content Include="AdminPanelFiles\assets\css\bootstrap.min.css" />
+    <Content Include="AdminPanelFiles\assets\css\icons.css" />
+    <Content Include="AdminPanelFiles\assets\css\pace.min.css" />
+    <Content Include="AdminPanelFiles\assets\css\sidebar-menu.css" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ad.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ae.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\af.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ag.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ai.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\al.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\am.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ao.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\aq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ar.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\as.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\at.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\au.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\aw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ax.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\az.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ba.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bb.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bd.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\be.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bi.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bo.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\br.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bs.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\by.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\bz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ca.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cd.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ch.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ci.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ck.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\co.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cx.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cy.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\cz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\de.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\dj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\dk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\dm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\do.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\dz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ec.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ee.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\eg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\eh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\er.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\es-ct.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\es.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\et.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\eu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\fi.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\fj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\fk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\fm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\fo.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\fr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ga.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gb-eng.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gb-nir.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gb-sct.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gb-wls.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gb.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gd.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ge.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gi.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gp.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gs.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\gy.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\hk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\hm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\hn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\hr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ht.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\hu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\id.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ie.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\il.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\im.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\in.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\io.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\iq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ir.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\is.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\it.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\je.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\jm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\jo.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\jp.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ke.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\kg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\kh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ki.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\km.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\kn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\kp.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\kr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\kw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ky.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\kz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\la.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\lb.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\lc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\li.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\lk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\lr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ls.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\lt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\lu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\lv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ly.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ma.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\md.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\me.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ml.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mo.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mp.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ms.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mx.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\my.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\mz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\na.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\nc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ne.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\nf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ng.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ni.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\nl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\no.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\np.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\nr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\nu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\nz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\om.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pa.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pe.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ph.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ps.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\pw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\py.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\qa.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\re.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ro.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\rs.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ru.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\rw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sa.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sb.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sd.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\se.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\si.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\so.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ss.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\st.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sx.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sy.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\sz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\td.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\th.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\to.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\tz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ua.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ug.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\um.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\un.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\us.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\uy.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\uz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\va.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\vc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ve.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\vg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\vi.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\vn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\vu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\wf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ws.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\ye.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\yt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\za.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\zm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\1x1\zw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ad.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ae.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\af.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ag.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ai.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\al.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\am.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ao.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\aq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ar.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\as.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\at.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\au.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\aw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ax.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\az.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ba.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bb.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bd.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\be.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bi.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bo.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\br.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bs.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\by.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\bz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ca.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cd.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ch.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ci.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ck.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\co.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cx.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cy.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\cz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\de.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\dj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\dk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\dm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\do.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\dz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ec.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ee.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\eg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\eh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\er.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\es-ct.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\es.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\et.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\eu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\fi.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\fj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\fk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\fm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\fo.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\fr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ga.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gb-eng.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gb-nir.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gb-sct.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gb-wls.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gb.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gd.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ge.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gi.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gp.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gs.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\gy.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\hk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\hm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\hn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\hr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ht.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\hu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\id.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ie.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\il.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\im.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\in.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\io.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\iq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ir.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\is.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\it.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\je.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\jm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\jo.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\jp.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ke.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\kg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\kh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ki.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\km.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\kn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\kp.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\kr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\kw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ky.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\kz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\la.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\lb.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\lc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\li.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\lk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\lr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ls.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\lt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\lu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\lv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ly.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ma.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\md.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\me.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ml.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mo.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mp.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mq.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ms.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mx.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\my.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\mz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\na.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\nc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ne.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\nf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ng.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ni.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\nl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\no.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\np.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\nr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\nu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\nz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\om.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pa.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pe.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ph.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ps.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\pw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\py.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\qa.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\re.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ro.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\rs.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ru.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\rw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sa.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sb.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sd.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\se.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sh.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\si.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\so.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ss.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\st.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sx.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sy.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\sz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\td.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\th.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tj.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tk.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tl.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\to.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tr.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tv.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tw.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\tz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ua.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ug.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\um.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\un.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\us.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\uy.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\uz.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\va.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\vc.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ve.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\vg.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\vi.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\vn.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\vu.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\wf.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ws.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\ye.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\yt.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\za.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\zm.svg" />
+    <Content Include="AdminPanelFiles\assets\flags\4x3\zw.svg" />
+    <Content Include="AdminPanelFiles\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="AdminPanelFiles\assets\fonts\line-awesome.svg" />
+    <Content Include="AdminPanelFiles\assets\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="AdminPanelFiles\assets\fonts\Simple-Line-Icons.svg" />
+    <Content Include="AdminPanelFiles\assets\fonts\themify.svg" />
+    <Content Include="AdminPanelFiles\assets\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="AdminPanelFiles\assets\images\bg-themes\1.png" />
+    <Content Include="AdminPanelFiles\assets\images\bg-themes\2.png" />
+    <Content Include="AdminPanelFiles\assets\images\bg-themes\3.png" />
+    <Content Include="AdminPanelFiles\assets\images\bg-themes\4.png" />
+    <Content Include="AdminPanelFiles\assets\images\bg-themes\5.png" />
+    <Content Include="AdminPanelFiles\assets\images\bg-themes\6.png" />
+    <Content Include="AdminPanelFiles\assets\images\favicon.ico" />
+    <Content Include="AdminPanelFiles\assets\images\gallery\cd-icon-navigation.svg" />
+    <Content Include="AdminPanelFiles\assets\images\logo-icon.png" />
+    <Content Include="AdminPanelFiles\assets\images\timeline\angular-icon.svg" />
+    <Content Include="AdminPanelFiles\assets\images\timeline\bootstrap-4.svg" />
+    <Content Include="AdminPanelFiles\assets\images\timeline\cd-arrow.svg" />
+    <Content Include="AdminPanelFiles\assets\images\timeline\cd-icon-location.svg" />
+    <Content Include="AdminPanelFiles\assets\images\timeline\cd-icon-movie.svg" />
+    <Content Include="AdminPanelFiles\assets\images\timeline\cd-icon-picture.svg" />
+    <Content Include="AdminPanelFiles\assets\images\timeline\css-3.svg" />
+    <Content Include="AdminPanelFiles\assets\images\timeline\html5.svg" />
+    <Content Include="AdminPanelFiles\assets\images\timeline\react.svg" />
+    <Content Include="AdminPanelFiles\assets\js\app-script.js" />
+    <Content Include="AdminPanelFiles\assets\js\bootstrap.js" />
+    <Content Include="AdminPanelFiles\assets\js\bootstrap.min.js" />
+    <Content Include="AdminPanelFiles\assets\js\index.js" />
+    <Content Include="AdminPanelFiles\assets\js\jquery.min.js" />
+    <Content Include="AdminPanelFiles\assets\js\pace.min.js" />
+    <Content Include="AdminPanelFiles\assets\js\popper.min.js" />
+    <Content Include="AdminPanelFiles\assets\js\sidebar-menu.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\Chart.js\Chart.min.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\Chart.js\chartjs-script.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\fullcalendar\css\fullcalendar.css" />
+    <Content Include="AdminPanelFiles\assets\plugins\fullcalendar\css\fullcalendar.min.css" />
+    <Content Include="AdminPanelFiles\assets\plugins\fullcalendar\css\fullcalendar.print.css" />
+    <Content Include="AdminPanelFiles\assets\plugins\fullcalendar\css\fullcalendar.print.min.css" />
+    <Content Include="AdminPanelFiles\assets\plugins\fullcalendar\js\fullcalendar-custom-script.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\fullcalendar\js\fullcalendar.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\fullcalendar\js\fullcalendar.min.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\fullcalendar\js\jquery-ui.min.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\fullcalendar\js\moment.min.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\jquery.easy-pie-chart\easy-pie-chart.init.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\jquery.easy-pie-chart\easypiechart.min.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\jquery.easy-pie-chart\jquery.easypiechart.min.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\simplebar\css\simplebar.css" />
+    <Content Include="AdminPanelFiles\assets\plugins\simplebar\js\simplebar.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\sparkline-charts\jquery.sparkline.min.js" />
+    <Content Include="AdminPanelFiles\assets\plugins\sparkline-charts\sparkline-chart-script.js" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\ie.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\buttons\icons\cross.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\buttons\icons\key.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\buttons\icons\tick.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\buttons\readme.txt" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\buttons\screen.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\fancy-type\readme.txt" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\fancy-type\screen.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\icons\doc.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\icons\email.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\icons\external.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\icons\feed.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\icons\im.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\icons\pdf.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\icons\visited.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\icons\xls.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\readme.txt" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\link-icons\screen.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\rtl\readme.txt" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\rtl\screen.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\print.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\screen.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\src\forms.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\src\grid.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\src\grid.png" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\src\ie.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\src\print.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\src\reset.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\src\typography.css" />
+    <Content Include="AdminPanelFiles\documentation\assets\images\htmlstructure.png" />
+    <Content Include="AdminPanelFiles\documentation\index.html" />
+    <Content Include="Content\ckeditor\adapters\jquery.js" />
+    <Content Include="Content\ckeditor\build-config.js" />
+    <Content Include="Content\ckeditor\ckeditor.js" />
+    <Content Include="Content\ckeditor\config.js" />
+    <Content Include="Content\ckeditor\contents.css" />
+    <Content Include="Content\ckeditor\lang\af.js" />
+    <Content Include="Content\ckeditor\lang\ar.js" />
+    <Content Include="Content\ckeditor\lang\az.js" />
+    <Content Include="Content\ckeditor\lang\bg.js" />
+    <Content Include="Content\ckeditor\lang\bn.js" />
+    <Content Include="Content\ckeditor\lang\bs.js" />
+    <Content Include="Content\ckeditor\lang\ca.js" />
+    <Content Include="Content\ckeditor\lang\cs.js" />
+    <Content Include="Content\ckeditor\lang\cy.js" />
+    <Content Include="Content\ckeditor\lang\da.js" />
+    <Content Include="Content\ckeditor\lang\de-ch.js" />
+    <Content Include="Content\ckeditor\lang\de.js" />
+    <Content Include="Content\ckeditor\lang\el.js" />
+    <Content Include="Content\ckeditor\lang\en-au.js" />
+    <Content Include="Content\ckeditor\lang\en-ca.js" />
+    <Content Include="Content\ckeditor\lang\en-gb.js" />
+    <Content Include="Content\ckeditor\lang\en.js" />
+    <Content Include="Content\ckeditor\lang\eo.js" />
+    <Content Include="Content\ckeditor\lang\es-mx.js" />
+    <Content Include="Content\ckeditor\lang\es.js" />
+    <Content Include="Content\ckeditor\lang\et.js" />
+    <Content Include="Content\ckeditor\lang\eu.js" />
+    <Content Include="Content\ckeditor\lang\fa.js" />
+    <Content Include="Content\ckeditor\lang\fi.js" />
+    <Content Include="Content\ckeditor\lang\fo.js" />
+    <Content Include="Content\ckeditor\lang\fr-ca.js" />
+    <Content Include="Content\ckeditor\lang\fr.js" />
+    <Content Include="Content\ckeditor\lang\gl.js" />
+    <Content Include="Content\ckeditor\lang\gu.js" />
+    <Content Include="Content\ckeditor\lang\he.js" />
+    <Content Include="Content\ckeditor\lang\hi.js" />
+    <Content Include="Content\ckeditor\lang\hr.js" />
+    <Content Include="Content\ckeditor\lang\hu.js" />
+    <Content Include="Content\ckeditor\lang\id.js" />
+    <Content Include="Content\ckeditor\lang\is.js" />
+    <Content Include="Content\ckeditor\lang\it.js" />
+    <Content Include="Content\ckeditor\lang\ja.js" />
+    <Content Include="Content\ckeditor\lang\ka.js" />
+    <Content Include="Content\ckeditor\lang\km.js" />
+    <Content Include="Content\ckeditor\lang\ko.js" />
+    <Content Include="Content\ckeditor\lang\ku.js" />
+    <Content Include="Content\ckeditor\lang\lt.js" />
+    <Content Include="Content\ckeditor\lang\lv.js" />
+    <Content Include="Content\ckeditor\lang\mk.js" />
+    <Content Include="Content\ckeditor\lang\mn.js" />
+    <Content Include="Content\ckeditor\lang\ms.js" />
+    <Content Include="Content\ckeditor\lang\nb.js" />
+    <Content Include="Content\ckeditor\lang\nl.js" />
+    <Content Include="Content\ckeditor\lang\no.js" />
+    <Content Include="Content\ckeditor\lang\oc.js" />
+    <Content Include="Content\ckeditor\lang\pl.js" />
+    <Content Include="Content\ckeditor\lang\pt-br.js" />
+    <Content Include="Content\ckeditor\lang\pt.js" />
+    <Content Include="Content\ckeditor\lang\ro.js" />
+    <Content Include="Content\ckeditor\lang\ru.js" />
+    <Content Include="Content\ckeditor\lang\si.js" />
+    <Content Include="Content\ckeditor\lang\sk.js" />
+    <Content Include="Content\ckeditor\lang\sl.js" />
+    <Content Include="Content\ckeditor\lang\sq.js" />
+    <Content Include="Content\ckeditor\lang\sr-latn.js" />
+    <Content Include="Content\ckeditor\lang\sr.js" />
+    <Content Include="Content\ckeditor\lang\sv.js" />
+    <Content Include="Content\ckeditor\lang\th.js" />
+    <Content Include="Content\ckeditor\lang\tr.js" />
+    <Content Include="Content\ckeditor\lang\tt.js" />
+    <Content Include="Content\ckeditor\lang\ug.js" />
+    <Content Include="Content\ckeditor\lang\uk.js" />
+    <Content Include="Content\ckeditor\lang\vi.js" />
+    <Content Include="Content\ckeditor\lang\zh-cn.js" />
+    <Content Include="Content\ckeditor\lang\zh.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\af.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\az.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\de-ch.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\en-au.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\en-gb.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\es-mx.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\eu.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\fo.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\oc.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\tt.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
+    <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Content\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Content\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="Content\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Content\ckeditor\plugins\balloonpanel\skins\kama\balloonpanel.css" />
+    <Content Include="Content\ckeditor\plugins\balloonpanel\skins\moono-lisa\balloonpanel.css" />
+    <Content Include="Content\ckeditor\plugins\balloonpanel\skins\moono-lisa\images\close.png" />
+    <Content Include="Content\ckeditor\plugins\balloonpanel\skins\moono-lisa\images\hidpi\close.png" />
+    <Content Include="Content\ckeditor\plugins\balloonpanel\skins\moono\balloonpanel.css" />
+    <Content Include="Content\ckeditor\plugins\balloonpanel\skins\moono\images\close.png" />
+    <Content Include="Content\ckeditor\plugins\balloonpanel\skins\moono\images\hidpi\close.png" />
+    <Content Include="Content\ckeditor\plugins\balloontoolbar\skins\default.css" />
+    <Content Include="Content\ckeditor\plugins\balloontoolbar\skins\kama\balloontoolbar.css" />
+    <Content Include="Content\ckeditor\plugins\balloontoolbar\skins\moono-lisa\balloontoolbar.css" />
+    <Content Include="Content\ckeditor\plugins\balloontoolbar\skins\moono\balloontoolbar.css" />
+    <Content Include="Content\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Content\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Content\ckeditor\plugins\dialog\styles\dialog.css" />
+    <Content Include="Content\ckeditor\plugins\easyimage\dialogs\easyimagealt.js" />
+    <Content Include="Content\ckeditor\plugins\easyimage\styles\easyimage.css" />
+    <Content Include="Content\ckeditor\plugins\icons.png" />
+    <Content Include="Content\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="Content\ckeditor\plugins\imagebase\styles\imagebase.css" />
+    <Content Include="Content\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Content\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="Content\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Content\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Content\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Content\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="Content\ckeditor\plugins\magicline\images\hidpi\icon-rtl.png" />
+    <Content Include="Content\ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="Content\ckeditor\plugins\magicline\images\icon-rtl.png" />
+    <Content Include="Content\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="Content\ckeditor\plugins\pastefromgdocs\filter\default.js" />
+    <Content Include="Content\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Content\ckeditor\plugins\pastetools\filter\common.js" />
+    <Content Include="Content\ckeditor\plugins\pastetools\filter\image.js" />
+    <Content Include="Content\ckeditor\plugins\scayt\dialogs\dialog.css" />
+    <Content Include="Content\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Content\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Content\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\af.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\az.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\da.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\de-ch.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\en-au.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\en-ca.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\en-gb.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\es-mx.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\eu.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\km.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\ko.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\lt.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\oc.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\ro.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\sr-latn.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\sr.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\tt.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\zh.js" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Content\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Content\ckeditor\plugins\tableselection\styles\tableselection.css" />
+    <Content Include="Content\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Content\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Content\ckeditor\plugins\widget\images\handle.png" />
+    <Content Include="Content\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="Content\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="Content\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="Content\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="Content\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="Content\ckeditor\plugins\wsc\skins\moono-lisa\wsc.css" />
+    <Content Include="Content\ckeditor\samples\css\samples.css" />
+    <Content Include="Content\ckeditor\samples\img\github-top.png" />
+    <Content Include="Content\ckeditor\samples\img\header-bg.png" />
+    <Content Include="Content\ckeditor\samples\img\header-separator.png" />
+    <Content Include="Content\ckeditor\samples\img\logo.png" />
+    <Content Include="Content\ckeditor\samples\img\logo.svg" />
+    <Content Include="Content\ckeditor\samples\img\navigation-tip.png" />
+    <Content Include="Content\ckeditor\samples\index.html" />
+    <Content Include="Content\ckeditor\samples\js\sample.js" />
+    <Content Include="Content\ckeditor\samples\js\sf.js" />
+    <Content Include="Content\ckeditor\samples\old\ajax.html" />
+    <Content Include="Content\ckeditor\samples\old\api.html" />
+    <Content Include="Content\ckeditor\samples\old\appendto.html" />
+    <Content Include="Content\ckeditor\samples\old\assets\inlineall\logo.png" />
+    <Content Include="Content\ckeditor\samples\old\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="Content\ckeditor\samples\old\assets\posteddata.php" />
+    <Content Include="Content\ckeditor\samples\old\assets\sample.jpg" />
+    <Content Include="Content\ckeditor\samples\old\assets\uilanguages\languages.js" />
+    <Content Include="Content\ckeditor\samples\old\datafiltering.html" />
+    <Content Include="Content\ckeditor\samples\old\dialog\assets\my_dialog.js" />
+    <Content Include="Content\ckeditor\samples\old\dialog\dialog.html" />
+    <Content Include="Content\ckeditor\samples\old\divreplace.html" />
+    <Content Include="Content\ckeditor\samples\old\easyimage\easyimage.html" />
+    <Content Include="Content\ckeditor\samples\old\enterkey\enterkey.html" />
+    <Content Include="Content\ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <Content Include="Content\ckeditor\samples\old\htmlwriter\assets\outputforflash\swfobject.js" />
+    <Content Include="Content\ckeditor\samples\old\htmlwriter\outputforflash.html" />
+    <Content Include="Content\ckeditor\samples\old\htmlwriter\outputhtml.html" />
+    <Content Include="Content\ckeditor\samples\old\index.html" />
+    <Content Include="Content\ckeditor\samples\old\inlineall.html" />
+    <Content Include="Content\ckeditor\samples\old\inlinebycode.html" />
+    <Content Include="Content\ckeditor\samples\old\inlinetextarea.html" />
+    <Content Include="Content\ckeditor\samples\old\jquery.html" />
+    <Content Include="Content\ckeditor\samples\old\magicline\magicline.html" />
+    <Content Include="Content\ckeditor\samples\old\readonly.html" />
+    <Content Include="Content\ckeditor\samples\old\replacebyclass.html" />
+    <Content Include="Content\ckeditor\samples\old\replacebycode.html" />
+    <Content Include="Content\ckeditor\samples\old\sample.css" />
+    <Content Include="Content\ckeditor\samples\old\sample.js" />
+    <Content Include="Content\ckeditor\samples\old\sample_posteddata.php" />
+    <Content Include="Content\ckeditor\samples\old\tabindex.html" />
+    <Content Include="Content\ckeditor\samples\old\toolbar\toolbar.html" />
+    <Content Include="Content\ckeditor\samples\old\uicolor.html" />
+    <Content Include="Content\ckeditor\samples\old\uilanguages.html" />
+    <Content Include="Content\ckeditor\samples\old\wysiwygarea\fullpage.html" />
+    <Content Include="Content\ckeditor\samples\old\xhtmlstyle.html" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\css\fontello.css" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\font\fontello.svg" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\font\LICENSE.txt" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\index.html" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\js\fulltoolbareditor.js" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\js\toolbarmodifier.js" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\js\toolbartextmodifier.js" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\javascript.js" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\dialog.css" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\dialog_ie.css" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\dialog_ie8.css" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\dialog_iequirks.css" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\editor.css" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\editor_gecko.css" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\editor_ie.css" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\editor_ie8.css" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\editor_iequirks.css" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\icons.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\icons_hidpi.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\arrow.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\close.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\hidpi\close.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\hidpi\lock-open.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\hidpi\lock.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\hidpi\refresh.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\lock-open.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\lock.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\refresh.png" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <Content Include="Content\ckeditor\styles.js" />
+    <Content Include="Content\ckeditor\vendor\promise.js" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\ckeditor\CHANGES.md" />
+    <Content Include="Content\ckeditor\LICENSE.md" />
+    <Content Include="Content\ckeditor\plugins\scayt\CHANGELOG.md" />
+    <Content Include="Content\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Content\ckeditor\plugins\scayt\README.md" />
+    <Content Include="Content\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="Content\ckeditor\plugins\wsc\README.md" />
+    <Content Include="Content\ckeditor\README.md" />
+    <Content Include="Content\ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\font\config.json" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\font\fontello.eot" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\font\fontello.ttf" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
+    <Content Include="Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
+    <Content Include="Content\ckeditor\skins\moono-lisa\readme.md" />
+    <None Include="Scripts\jquery-1.7-vsdoc.js" />
+    <Content Include="Scripts\i18n\af.js" />
+    <Content Include="Scripts\i18n\ar.js" />
+    <Content Include="Scripts\i18n\az.js" />
+    <Content Include="Scripts\i18n\bg.js" />
+    <Content Include="Scripts\i18n\bn.js" />
+    <Content Include="Scripts\i18n\bs.js" />
+    <Content Include="Scripts\i18n\ca.js" />
+    <Content Include="Scripts\i18n\cs.js" />
+    <Content Include="Scripts\i18n\da.js" />
+    <Content Include="Scripts\i18n\de.js" />
+    <Content Include="Scripts\i18n\dsb.js" />
+    <Content Include="Scripts\i18n\el.js" />
+    <Content Include="Scripts\i18n\en.js" />
+    <Content Include="Scripts\i18n\es.js" />
+    <Content Include="Scripts\i18n\et.js" />
+    <Content Include="Scripts\i18n\eu.js" />
+    <Content Include="Scripts\i18n\fa.js" />
+    <Content Include="Scripts\i18n\fi.js" />
+    <Content Include="Scripts\i18n\fr.js" />
+    <Content Include="Scripts\i18n\gl.js" />
+    <Content Include="Scripts\i18n\he.js" />
+    <Content Include="Scripts\i18n\hi.js" />
+    <Content Include="Scripts\i18n\hr.js" />
+    <Content Include="Scripts\i18n\hsb.js" />
+    <Content Include="Scripts\i18n\hu.js" />
+    <Content Include="Scripts\i18n\hy.js" />
+    <Content Include="Scripts\i18n\id.js" />
+    <Content Include="Scripts\i18n\is.js" />
+    <Content Include="Scripts\i18n\it.js" />
+    <Content Include="Scripts\i18n\ja.js" />
+    <Content Include="Scripts\i18n\ka.js" />
+    <Content Include="Scripts\i18n\km.js" />
+    <Content Include="Scripts\i18n\ko.js" />
+    <Content Include="Scripts\i18n\lt.js" />
+    <Content Include="Scripts\i18n\lv.js" />
+    <Content Include="Scripts\i18n\mk.js" />
+    <Content Include="Scripts\i18n\ms.js" />
+    <Content Include="Scripts\i18n\nb.js" />
+    <Content Include="Scripts\i18n\ne.js" />
+    <Content Include="Scripts\i18n\nl.js" />
+    <Content Include="Scripts\i18n\pl.js" />
+    <Content Include="Scripts\i18n\ps.js" />
+    <Content Include="Scripts\i18n\pt-BR.js" />
+    <Content Include="Scripts\i18n\pt.js" />
+    <Content Include="Scripts\i18n\ro.js" />
+    <Content Include="Scripts\i18n\ru.js" />
+    <Content Include="Scripts\i18n\sk.js" />
+    <Content Include="Scripts\i18n\sl.js" />
+    <Content Include="Scripts\i18n\sq.js" />
+    <Content Include="Scripts\i18n\sr-Cyrl.js" />
+    <Content Include="Scripts\i18n\sr.js" />
+    <Content Include="Scripts\i18n\sv.js" />
+    <Content Include="Scripts\i18n\th.js" />
+    <Content Include="Scripts\i18n\tk.js" />
+    <Content Include="Scripts\i18n\tr.js" />
+    <Content Include="Scripts\i18n\uk.js" />
+    <Content Include="Scripts\i18n\vi.js" />
+    <Content Include="Scripts\i18n\zh-CN.js" />
+    <Content Include="Scripts\i18n\zh-TW.js" />
+    <Content Include="Scripts\jquery-1.7.js" />
+    <Content Include="Scripts\jquery-1.7.min.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="SiteFiles\css\easy-responsive-tabs.css" />
+    <Content Include="SiteFiles\css\global.css" />
+    <Content Include="SiteFiles\css\slider.css" />
+    <Content Include="SiteFiles\css\style.css" />
+    <Content Include="SiteFiles\images\about_img.jpg" />
+    <Content Include="SiteFiles\images\arrow-next.png" />
+    <Content Include="SiteFiles\images\arrow-prev.png" />
+    <Content Include="SiteFiles\images\arrow_up.png" />
+    <Content Include="SiteFiles\images\compare.png" />
+    <Content Include="SiteFiles\images\delivery-img1.jpg" />
+    <Content Include="SiteFiles\images\delivery-img2.jpg" />
+    <Content Include="SiteFiles\images\delivery-img3.jpg" />
+    <Content Include="SiteFiles\images\dribbble.png" />
+    <Content Include="SiteFiles\images\drop_arrow-hover.png" />
+    <Content Include="SiteFiles\images\drop_arrow.png" />
+    <Content Include="SiteFiles\images\facebook.png" />
+    <Content Include="SiteFiles\images\feature-pic1.jpg" />
+    <Content Include="SiteFiles\images\feature-pic2.jpg" />
+    <Content Include="SiteFiles\images\feature-pic3.jpg" />
+    <Content Include="SiteFiles\images\feature-pic4.jpg" />
+    <Content Include="SiteFiles\images\linkedin.png" />
+    <Content Include="SiteFiles\images\list-img.png" />
+    <Content Include="SiteFiles\images\logo.png" />
+    <Content Include="SiteFiles\images\new-pic1.jpg" />
+    <Content Include="SiteFiles\images\new-pic2.jpg" />
+    <Content Include="SiteFiles\images\new-pic3.jpg" />
+    <Content Include="SiteFiles\images\new-pic4.jpg" />
+    <Content Include="SiteFiles\images\newsimg1.jpg" />
+    <Content Include="SiteFiles\images\newsimg2.jpg" />
+    <Content Include="SiteFiles\images\newsimg3.jpg" />
+    <Content Include="SiteFiles\images\preview.jpg" />
+    <Content Include="SiteFiles\images\price-rating.png" />
+    <Content Include="SiteFiles\images\productslide-1.jpg" />
+    <Content Include="SiteFiles\images\productslide-2.jpg" />
+    <Content Include="SiteFiles\images\productslide-3.jpg" />
+    <Content Include="SiteFiles\images\productslide-4.jpg" />
+    <Content Include="SiteFiles\images\productslide-5.jpg" />
+    <Content Include="SiteFiles\images\productslide-6.jpg" />
+    <Content Include="SiteFiles\images\quality-rating.png" />
+    <Content Include="SiteFiles\images\search.png" />
+    <Content Include="SiteFiles\images\skype.png" />
+    <Content Include="SiteFiles\images\slide-1-image.png" />
+    <Content Include="SiteFiles\images\slide-2-image.jpg" />
+    <Content Include="SiteFiles\images\slide-3-image.jpg" />
+    <Content Include="SiteFiles\images\tag.png" />
+    <Content Include="SiteFiles\images\thumbnailslide-1.jpg" />
+    <Content Include="SiteFiles\images\thumbnailslide-2.jpg" />
+    <Content Include="SiteFiles\images\thumbnailslide-3.jpg" />
+    <Content Include="SiteFiles\images\thumbnailslide-4.jpg" />
+    <Content Include="SiteFiles\images\thumbnailslide-5.jpg" />
+    <Content Include="SiteFiles\images\thumbnailslide-6.jpg" />
+    <Content Include="SiteFiles\images\twitter.png" />
+    <Content Include="SiteFiles\images\value-rating.png" />
+    <Content Include="SiteFiles\images\wishlist.png" />
+    <Content Include="SiteFiles\index.html" />
+    <Content Include="SiteFiles\js\easing.js" />
+    <Content Include="SiteFiles\js\easyResponsiveTabs.js" />
+    <Content Include="SiteFiles\js\jquery-1.7.2.min.js" />
+    <Content Include="SiteFiles\js\jquery.accordion.js" />
+    <Content Include="SiteFiles\js\jquery.easing.js" />
+    <Content Include="SiteFiles\js\move-top.js" />
+    <Content Include="SiteFiles\js\script.js" />
+    <Content Include="SiteFiles\js\slides.min.jquery.js" />
+    <Content Include="SiteFiles\js\startstop-slider.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\SeoHelper.cs" />
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblAyarlar.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCesitler.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblIletisim.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblKategoriler.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblLog.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblMarkalar.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblMusteriler.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSiparisKaydi.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSlider.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblStokYonetimi.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUrunler.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblYetki.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblYonetici.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="AdminPanelFiles\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="AdminPanelFiles\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="AdminPanelFiles\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="AdminPanelFiles\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="AdminPanelFiles\assets\fonts\FontAwesome.otf" />
+    <Content Include="AdminPanelFiles\assets\fonts\line-awesome.eot" />
+    <Content Include="AdminPanelFiles\assets\fonts\line-awesome.ttf" />
+    <Content Include="AdminPanelFiles\assets\fonts\line-awesome.woff" />
+    <Content Include="AdminPanelFiles\assets\fonts\line-awesome.woff2" />
+    <Content Include="AdminPanelFiles\assets\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="AdminPanelFiles\assets\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="AdminPanelFiles\assets\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="AdminPanelFiles\assets\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="AdminPanelFiles\assets\fonts\Simple-Line-Icons.eot" />
+    <Content Include="AdminPanelFiles\assets\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="AdminPanelFiles\assets\fonts\Simple-Line-Icons.woff" />
+    <Content Include="AdminPanelFiles\assets\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="AdminPanelFiles\assets\fonts\themify.eot" />
+    <Content Include="AdminPanelFiles\assets\fonts\themify.ttf" />
+    <Content Include="AdminPanelFiles\assets\fonts\themify.woff" />
+    <Content Include="AdminPanelFiles\assets\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="AdminPanelFiles\assets\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="AdminPanelFiles\assets\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="AdminPanelFiles\assets\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="AdminPanelFiles\documentation\assets\.DS_Store" />
+    <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\.DS_Store" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Kategoriler.cshtml" />
+    <Content Include="Views\Admin\KategoriEkle.cshtml" />
+    <Content Include="Views\Admin\KategoriDuzenle.cshtml" />
+    <Content Include="Views\Admin\Cesitler.cshtml" />
+    <Content Include="Views\Admin\CesitEkle.cshtml" />
+    <Content Include="Views\Admin\CesitDuzenle.cshtml" />
+    <Content Include="Views\Test\Create.cshtml" />
+    <Content Include="Views\Test\Delete.cshtml" />
+    <Content Include="Views\Test\Details.cshtml" />
+    <Content Include="Views\Test\Edit.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Admin\Markalar.cshtml" />
+    <Content Include="Views\Admin\MarkaEkle.cshtml" />
+    <Content Include="Views\Admin\MarkaDuzenle.cshtml" />
+    <Content Include="Views\Admin\Urunler.cshtml" />
+    <Content Include="Views\Admin\UrunEkle.cshtml" />
+    <Content Include="Views\Admin\UrunIncele.cshtml" />
+    <Content Include="Views\Admin\UrunDuzenle.cshtml" />
+    <Content Include="Views\Admin\SliderYoneticisi.cshtml" />
+    <Content Include="Views\Admin\SliderEkle.cshtml" />
+    <Content Include="Views\Admin\SliderDuzenle.cshtml" />
+    <Content Include="Views\Admin\StokYonetimi.cshtml" />
+    <Content Include="Views\Shared\_SiteLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="SiteFiles\font\Amble-Regular-webfont.ttf" />
+    <Content Include="SiteFiles\images\Thumbs.db" />
+    <Content Include="Views\Home\UrunKategoriPartial.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Kategori\" />
+    <Folder Include="Uploads\Marka\" />
+    <Folder Include="Uploads\Products\" />
+    <Folder Include="Uploads\Slider\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59153</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44321/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

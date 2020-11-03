@@ -1,0 +1,34 @@
+﻿@model ShopApp.WebUI.Models.tblMarkalar
+@{
+    ViewBag.Title = "MarkaDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-title">Marka Düzenle</div>
+<hr>
+@using (Html.BeginForm("MarkaDuzenle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{@Html.AntiForgeryToken()
+    <form>
+        <div class="form-group">
+            <label for="input-6">Marka Adı</label>
+            @Html.TextBoxFor(x => x.ad, new { @class = "form-control form-control-rounded", placeholder = "Marka Adı Giriniz..." })
+        </div>
+        <div class="form-group">
+            <label for="input-7">Kategori</label>
+            @Html.DropDownList("kategori", null, new { @class = "form-control form-control-rounded" })
+        </div>
+        <div class="form-group">
+            <label for="input-7">Çeşit</label>
+            @Html.DropDownList("cesit", null, new { @class = "form-control form-control-rounded" })
+        </div>
+        <div class="form-group">
+            <label for="input-9">Marka Resim</label>
+            <input type="file" class="form-control form-control-rounded " name="resimUrl" placeholder="800x800 En Uygun Formattır" accept=".jpg,.png.,.jpeg" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-light btn-round px-5"> Düzenle</button>
+        </div>
+
+    </form>
+}
+

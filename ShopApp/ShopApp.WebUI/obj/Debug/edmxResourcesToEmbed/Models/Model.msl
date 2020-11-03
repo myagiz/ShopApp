@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShopAppModelStoreContainer" CdmEntityContainer="ShopAppEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ShopAppModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAyarlar">
+      <EntityTypeMapping TypeName="ShopAppModel.tblAyarlar">
+        <MappingFragment StoreEntitySet="tblAyarlar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="logourl" ColumnName="logourl" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="footer" ColumnName="footer" />
+          <ScalarProperty Name="modul1" ColumnName="modul1" />
+          <ScalarProperty Name="modul2" ColumnName="modul2" />
+          <ScalarProperty Name="modul3" ColumnName="modul3" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="hakkimda" ColumnName="hakkimda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCesitler">
+      <EntityTypeMapping TypeName="ShopAppModel.tblCesitler">
+        <MappingFragment StoreEntitySet="tblCesitler">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="resimUrl" ColumnName="resimUrl" />
+          <ScalarProperty Name="kategori" ColumnName="kategori" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblIletisim">
+      <EntityTypeMapping TypeName="ShopAppModel.tblIletisim">
+        <MappingFragment StoreEntitySet="tblIletisim">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="instagram" ColumnName="instagram" />
+          <ScalarProperty Name="twitter" ColumnName="twitter" />
+          <ScalarProperty Name="facebook" ColumnName="facebook" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblKategoriler">
+      <EntityTypeMapping TypeName="ShopAppModel.tblKategoriler">
+        <MappingFragment StoreEntitySet="tblKategoriler">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="resimUrl" ColumnName="resimUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLog">
+      <EntityTypeMapping TypeName="ShopAppModel.tblLog">
+        <MappingFragment StoreEntitySet="tblLog">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="yonetici" ColumnName="yonetici" />
+          <ScalarProperty Name="detay" ColumnName="detay" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMarkalar">
+      <EntityTypeMapping TypeName="ShopAppModel.tblMarkalar">
+        <MappingFragment StoreEntitySet="tblMarkalar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="resimUrl" ColumnName="resimUrl" />
+          <ScalarProperty Name="kategori" ColumnName="kategori" />
+          <ScalarProperty Name="cesit" ColumnName="cesit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMusteriler">
+      <EntityTypeMapping TypeName="ShopAppModel.tblMusteriler">
+        <MappingFragment StoreEntitySet="tblMusteriler">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="il" ColumnName="il" />
+          <ScalarProperty Name="ilce" ColumnName="ilce" />
+          <ScalarProperty Name="resimUrl" ColumnName="resimUrl" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="sipariskaydi" ColumnName="sipariskaydi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSiparisKaydi">
+      <EntityTypeMapping TypeName="ShopAppModel.tblSiparisKaydi">
+        <MappingFragment StoreEntitySet="tblSiparisKaydi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="urun" ColumnName="urun" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="onay" ColumnName="onay" />
+          <ScalarProperty Name="musteri" ColumnName="musteri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSlider">
+      <EntityTypeMapping TypeName="ShopAppModel.tblSlider">
+        <MappingFragment StoreEntitySet="tblSlider">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="resimUrl" ColumnName="resimUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStokYonetimi">
+      <EntityTypeMapping TypeName="ShopAppModel.tblStokYonetimi">
+        <MappingFragment StoreEntitySet="tblStokYonetimi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kategori" ColumnName="kategori" />
+          <ScalarProperty Name="cesit" ColumnName="cesit" />
+          <ScalarProperty Name="urun" ColumnName="urun" />
+          <ScalarProperty Name="marka" ColumnName="marka" />
+          <ScalarProperty Name="durum" ColumnName="durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUrunler">
+      <EntityTypeMapping TypeName="ShopAppModel.tblUrunler">
+        <MappingFragment StoreEntitySet="tblUrunler">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="resimUrl" ColumnName="resimUrl" />
+          <ScalarProperty Name="resimUrl2" ColumnName="resimUrl2" />
+          <ScalarProperty Name="resimUrl3" ColumnName="resimUrl3" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="beden" ColumnName="beden" />
+          <ScalarProperty Name="olcu" ColumnName="olcu" />
+          <ScalarProperty Name="renk" ColumnName="renk" />
+          <ScalarProperty Name="indirim" ColumnName="indirim" />
+          <ScalarProperty Name="oylama" ColumnName="oylama" />
+          <ScalarProperty Name="iade" ColumnName="iade" />
+          <ScalarProperty Name="teslimat" ColumnName="teslimat" />
+          <ScalarProperty Name="kategori" ColumnName="kategori" />
+          <ScalarProperty Name="stok" ColumnName="stok" />
+          <ScalarProperty Name="marka" ColumnName="marka" />
+          <ScalarProperty Name="cesit" ColumnName="cesit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblYetki">
+      <EntityTypeMapping TypeName="ShopAppModel.tblYetki">
+        <MappingFragment StoreEntitySet="tblYetki">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblYonetici">
+      <EntityTypeMapping TypeName="ShopAppModel.tblYonetici">
+        <MappingFragment StoreEntitySet="tblYonetici">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="resimUrl" ColumnName="resimUrl" />
+          <ScalarProperty Name="yetki" ColumnName="yetki" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

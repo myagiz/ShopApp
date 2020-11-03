@@ -1,0 +1,31 @@
+﻿@using ShopApp.WebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@using ShopApp.WebUI.Helper
+@model PagedList<tblSlider>
+@{
+    ViewBag.Title = "SliderYoneticisi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h7><a href="/admin/sliderekle/" class="badge badge-light">Slider Ekle</a></h7>
+<hr />
+@foreach (var p in Model)
+{
+    <ul class="list-unstyled">
+        <li class="media">
+            <img src="@p.resimUrl" width="400" height="150">
+            <div class="media-body" style="margin-left: 20px">
+                <h7><a href="/admin/slidersil/@p.id" class="badge badge-danger">Sil</a></h7>&nbsp;&nbsp;<h7><a href="/admin/sliderduzenle/@SeoHelper.ToSeoUrl(p.baslik).ToLower()-@p.id" class="badge badge-success">Düzenle</a></h7>
+                <div style="margin-top: 15px">
+                    <h4 class="mt-0 mb-1">@p.baslik</h4>
+                    <p><i>@p.aciklama</i></p>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <hr />
+}
+<ul class="pagination pagination-sm">
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("SliderYoneticisi", new { sayfa }))
+</ul>

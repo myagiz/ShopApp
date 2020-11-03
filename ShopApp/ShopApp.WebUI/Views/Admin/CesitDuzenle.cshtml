@@ -1,0 +1,29 @@
+﻿@model ShopApp.WebUI.Models.tblCesitler
+@{
+    ViewBag.Title = "CesitDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-title">Çeşit Düzenle</div>
+<hr>
+@using (Html.BeginForm("CesitDuzenle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ @Html.AntiForgeryToken()
+    <form>
+        <div class="form-group">
+            <label for="input-6">Çeşit Kategorisi</label>
+            @Html.DropDownList("kategori", null, new { @class = "form-control form-control-rounded" })
+        </div>
+        <div class="form-group">
+            <label for="input-7">Çeşit Adı</label>
+            @Html.TextBoxFor(x => x.ad, new { @class = "form-control form-control-rounded", placeholder = "Kategori Açıklaması Giriniz..." })
+        </div>
+        <div class="form-group">
+            <label for="input-7">Çeşit Açıklama</label>
+            @Html.TextBoxFor(x => x.aciklama, new { @class = "form-control form-control-rounded", placeholder = "Kategori Açıklaması Giriniz..." })
+        </div>
+        <div class="form-group">
+            <button class="btn btn-light btn-round px-5"> Düzenle</button>
+        </div>
+
+    </form>
+}
