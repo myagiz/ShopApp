@@ -3,52 +3,11 @@
 @using PagedList.Mvc
 @using ShopApp.WebUI.Helper
 @model PagedList<tblUrunler>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kategori";
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
 }
-
-
-<div class="header_slide" style="margin-top: -15px">
-    <div class="header_bottom_left">
-        <div class="categories">
-            <h3>ÜRÜN KATEGORİLERİ</h3>
-            @{
-                Html.RenderAction("UrunKategoriPartial", "Home");
-            }
-        </div>
-    </div>
-    <div class="header_bottom_right" style="margin-bottom: 10px">
-        <div class="slider">
-            <div id="slider">
-                <div id="mover">
-                    @{
-                        Html.RenderAction("SliderPartial", "Home");
-                    }
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col">
-        <img src="/SiteFiles/images/el.jpg" />
-    </div>
-    <div class="col">
-        <img src="/SiteFiles/images/unlost.jpg" />
-    </div>
-    <div class="col">
-        <img src="/SiteFiles/images/cyberpunk.jpg" />
-    </div>
-</div>
-
-<div style="margin-left: 25px"><span class="badge badge-danger">SON EKLENEN ÜRÜNLER</span></div>
-
-@*<button type="button" class="btn btn-outline-danger btn-lg btn-block">SON EKLENEN ÜRÜNLER</button>*@
-
-
 
 @foreach (var p in Model)
 {

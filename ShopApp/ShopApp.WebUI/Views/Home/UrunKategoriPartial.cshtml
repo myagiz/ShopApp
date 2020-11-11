@@ -1,14 +1,15 @@
-﻿@model IEnumerable<ShopApp.WebUI.Models.tblKategoriler>
+﻿@using ShopApp.WebUI.Helper
+@model IEnumerable<ShopApp.WebUI.Models.tblKategoriler>
 
 
 
 
 <ul>
-    <h3>Ürünler</h3>
+    
     
     @foreach (var item in Model)
     {
-        <li><a href="/Home/UrunDetay/@item.id">@item.ad<span> (@item.tblUrunler.Count())</span></a></li>
+        <li><a href="/home/kategori/@SeoHelper.ToSeoUrl(item.ad).ToLower()-@item.id">@item.ad<span> (@item.tblUrunler.Count())</span></a></li>
     }
 
     

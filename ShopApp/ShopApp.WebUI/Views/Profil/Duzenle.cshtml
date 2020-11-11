@@ -1,0 +1,144 @@
+﻿@model ShopApp.WebUI.Models.tblMusteriler
+@{
+    ViewBag.Title = "Duzenle";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="card-header">
+    <h1>Profilinizi Düzenleyebilirsiniz</h1><hr />
+    @using (Html.BeginForm("Duzenle", "Profil", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {@Html.AntiForgeryToken()
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Ad</label>
+            @Html.TextBoxFor(x => x.ad, new { @class = "form-control form-control-rounded" })
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Soyad</label>
+            @Html.TextBoxFor(x => x.soyad, new { @class = "form-control form-control-rounded" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            @Html.TextBoxFor(x => x.email, new { @class = "form-control form-control-rounded", })
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Şifre</label>
+            @Html.TextBoxFor(x => x.sifre, new { @class = "form-control form-control-rounded", type = "password" })
+        </div>
+    </div>
+    <div class="form-group ">
+        <label for="inputAddress">Adres</label>
+        @Html.TextBoxFor(x => x.adres, new { @class = "form-control form-control-rounded" })
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">Telefon</label>
+            @Html.TextBoxFor(x => x.telefon, new { @class = "form-control form-control-rounded" })
+        </div>
+        <div class="form-group col-md-4">
+            <label>Şehir</label>
+            <select id="il" name="il" class="form-control">
+                <option selected disabled="disabled">Şehir Seçiniz</option>
+                <option>Adana</option>
+                <option>Adıyaman</option>
+                <option>Afyonkarahisar</option>
+                <option>Ağrı</option>
+                <option>Amasya</option>
+                <option>Ankara</option>
+                <option>Antalya</option>
+                <option>Artvin</option>
+                <option>Aydın</option>
+                <option>Balıkesir</option>
+                <option>Bilecik</option>
+                <option>Bingöl</option>
+                <option>Bitlis</option>
+                <option>Bolu</option>
+                <option>Burdur</option>
+                <option>Bursa</option>
+                <option>Çanakkale</option>
+                <option>Çankırı</option>
+                <option>Çorum</option>
+                <option>Denizli</option>
+                <option>Diyarbakır</option>
+                <option>Edirne</option>
+                <option>Elazığ</option>
+                <option>Erzincan</option>
+                <option>Erzurum</option>
+                <option>Eskişehir</option>
+                <option>Gaziantep</option>
+                <option>Giresun</option>
+                <option>Gümüşhane</option>
+                <option>Hakkâri</option>
+                <option>Isparta</option>
+                <option>Mersin</option>
+                <option>İstanbul</option>
+                <option>İzmir</option>
+                <option>Kars</option>
+                <option>Kastamonu</option>
+                <option>Kayseri</option>
+                <option>Kırklareli</option>
+                <option>Kırşehir</option>
+                <option>Kocaeli</option>
+                <option>Konya</option>
+                <option>Kütahya</option>
+                <option>Malatya</option>
+                <option>Manisa</option>
+                <option>Kahramanmaraş</option>
+                <option>Mardin</option>
+                <option>Muğla</option>
+                <option>Muş</option>
+                <option>Nevşehir</option>
+                <option>Niğde</option>
+                <option>Ordu</option>
+                <option>Rize</option>
+                <option>Sakarya</option>
+                <option>Samsun</option>
+                <option>Siirt</option>
+                <option>Sinop</option>
+                <option>Sivas</option>
+                <option>Tekirdağ</option>
+                <option>Tokat</option>
+                <option>Trabzon</option>
+                <option>Tunceli</option>
+                <option>Şanlıurfa</option>
+                <option>Uşak</option>
+                <option>Van</option>
+                <option>Yozgat</option>
+                <option>Zonguldak</option>
+                <option>Aksaray</option>
+                <option>Bayburt</option>
+                <option>Karaman</option>
+                <option>Kırıkkale</option>
+                <option>Batman</option>
+                <option>Şırnak</option>
+                <option>Bartın</option>
+                <option>Ardahan</option>
+                <option>Iğdır</option>
+                <option>Yalova</option>
+                <option>Karabük</option>
+                <option>Kilis</option>
+                <option>Osmaniye</option>
+                <option>Düzce</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">İlçe</label>
+            @Html.TextBoxFor(x => x.ilce, new { @class = "form-control form-control-rounded"})
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="input-9">Ürün Resmi</label>
+            <input type="file" class="form-control form-control-rounded " name="resimUrl" id="resimUrl" multiple="true" placeholder="600x600 En Uygun Formattır" accept=".jpg,.png,.jpeg" />
+        </div>
+    </div>
+    <div class="form-group" align="right">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+
+}
+
+</div>
+

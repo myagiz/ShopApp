@@ -1140,12 +1140,15 @@
     <Content Include="SiteFiles\images\arrow-prev.png" />
     <Content Include="SiteFiles\images\arrow_up.png" />
     <Content Include="SiteFiles\images\compare.png" />
+    <Content Include="SiteFiles\images\cyberpunk.jpg" />
+    <Content Include="SiteFiles\images\dark.jpg" />
     <Content Include="SiteFiles\images\delivery-img1.jpg" />
     <Content Include="SiteFiles\images\delivery-img2.jpg" />
     <Content Include="SiteFiles\images\delivery-img3.jpg" />
     <Content Include="SiteFiles\images\dribbble.png" />
     <Content Include="SiteFiles\images\drop_arrow-hover.png" />
     <Content Include="SiteFiles\images\drop_arrow.png" />
+    <Content Include="SiteFiles\images\el.jpg" />
     <Content Include="SiteFiles\images\facebook.png" />
     <Content Include="SiteFiles\images\feature-pic1.jpg" />
     <Content Include="SiteFiles\images\feature-pic2.jpg" />
@@ -1183,6 +1186,7 @@
     <Content Include="SiteFiles\images\thumbnailslide-5.jpg" />
     <Content Include="SiteFiles\images\thumbnailslide-6.jpg" />
     <Content Include="SiteFiles\images\twitter.png" />
+    <Content Include="SiteFiles\images\unlost.jpg" />
     <Content Include="SiteFiles\images\value-rating.png" />
     <Content Include="SiteFiles\images\wishlist.png" />
     <Content Include="SiteFiles\index.html" />
@@ -1200,7 +1204,9 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GirisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfilController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1330,6 +1336,16 @@
     <Content Include="SiteFiles\font\Amble-Regular-webfont.ttf" />
     <Content Include="SiteFiles\images\Thumbs.db" />
     <Content Include="Views\Home\UrunKategoriPartial.cshtml" />
+    <Content Include="Views\Home\SliderPartial.cshtml" />
+    <Content Include="Views\Home\FooterPartial.cshtml" />
+    <Content Include="Views\Home\UrunIncele.cshtml" />
+    <Content Include="Views\Home\Kategori.cshtml" />
+    <Content Include="Views\Home\SiparisKaydi.cshtml" />
+    <Content Include="Views\Home\KayitOl.cshtml" />
+    <Content Include="Views\Home\Profil.cshtml" />
+    <Content Include="Views\Giris\Index.cshtml" />
+    <Content Include="Views\Profil\Index.cshtml" />
+    <Content Include="Views\Profil\Duzenle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1342,6 +1358,7 @@
     <Folder Include="Uploads\Kategori\" />
     <Folder Include="Uploads\Marka\" />
     <Folder Include="Uploads\Products\" />
+    <Folder Include="Uploads\Profil\" />
     <Folder Include="Uploads\Slider\" />
   </ItemGroup>
   <ItemGroup>

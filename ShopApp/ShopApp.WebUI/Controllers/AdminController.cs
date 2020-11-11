@@ -17,7 +17,6 @@ namespace ShopApp.WebUI.Controllers
         // GET: Admin
         private ShopAppEntities db = new ShopAppEntities();
 
-        [Route("")]
         [Route("admin")]
         public ActionResult Index()
         {
@@ -265,7 +264,7 @@ namespace ShopApp.WebUI.Controllers
             @ViewBag.cesit = new SelectList(db.tblCesitler, "id", "ad");
             return View();
         }
-
+        
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
@@ -450,6 +449,7 @@ namespace ShopApp.WebUI.Controllers
             var stokyonetimi = db.tblStokYonetimi.ToList().ToPagedList(sayfa,10);
             return View(stokyonetimi);
         }
+
        
     }
 

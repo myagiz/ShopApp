@@ -1,0 +1,131 @@
+﻿@model ShopApp.WebUI.Models.tblUrunler
+@{
+    ViewBag.Title = "UrunIncele";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="content" style="margin-top: -200px">
+    <div class="section group">
+        <div class="cont-desc span_1_of_2">
+            <div class="product-details">
+                <div class="grid images_3_of_2">
+                    <div id="container">
+                        <div id="products_example">
+                            <div id="products">
+                                <div class="slides_container">
+                                    <a href="#" target="_blank"><img src="@Model.resimUrl" width="300" height="400" alt=" " /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="desc span_3_of_2">
+                    <h2>@Html.DisplayFor(model => model.ad))</h2>
+                    <h1><span class="badge badge-dark">Ürün Kodu #@Model.id</span></h1>
+                    <p><span class="badge badge-danger">@Model.tblKategoriler.ad</span>&nbsp;&nbsp;<span class="badge badge-warning">@Model.tblCesitler.ad</span>&nbsp;&nbsp;<span class="badge badge-info">@Model.tblMarkalar.ad</span></p>
+                    @*<p>@Html.Raw(Model.aciklama)</p>*@
+                    <div class="price">
+                        <p>Fiyat: <span>@Html.DisplayFor(model => model.fiyat)</span></p>
+                    </div>
+                    <div class="available">
+                        <p>Available Options :</p>
+                        <ul>
+                            <li>
+                                Color:
+                                <select>
+                                    <option>Silver</option>
+                                    <option>Black</option>
+                                    <option>Dark Black</option>
+                                    <option>Red</option>
+                                </select>
+                            </li>
+                            <li>
+                                Size:<select>
+                                    <option>Large</option>
+                                    <option>Medium</option>
+                                    <option>small</option>
+                                    <option>Large</option>
+                                    <option>small</option>
+                                </select>
+                            </li>
+                            <li>
+                                Quality:<select>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="share-desc">
+                        <div class="clear"></div>
+                    </div>
+                    <div class="wish-list">
+                        <ul>
+                            <li class="wish"><a href="#">Sepete Ekle</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="product_desc">
+                <div id="horizontalTab">
+                    <div class="resp-tabs-container">
+                        <div class="product-desc">
+                            <h1>Ürün Özellikleri</h1>
+                            <hr/>
+                            <b>@Html.Raw(Model.aciklama)</b>
+                        </div>
+
+                        
+
+                        <div class="review">
+                            
+                            <div class="your-review">
+                                <h3>How Do You Rate This Product?</h3>
+                                <p>Write Your Own Review?</p>
+                                <form>
+                                    <div>
+                                        <span><label>Nickname<span class="red">*</span></label></span>
+                                        <span><input type="text" value=""></span>
+                                    </div>
+                                    <div>
+                                        <span><label>Summary of Your Review<span class="red">*</span></label></span>
+                                        <span><input type="text" value=""></span>
+                                    </div>
+                                    <div>
+                                        <span><label>Review<span class="red">*</span></label></span>
+                                        <span><textarea> </textarea></span>
+                                    </div>
+                                    <div>
+                                        <span><input type="submit" value="SUBMIT REVIEW"></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#horizontalTab').easyResponsiveTabs({
+                        type: 'default', //Types: default, vertical, accordion
+                        width: 'auto', //auto or any width like 600px
+                        fit: true   // 100% fit in a container
+                    });
+                });</script>
+
+        </div>
+        <div class="rightsidebar span_3_of_1">
+            <h2>ÜRÜN KATEGORİLERİ</h2>
+            <ul class="side-w3ls">
+                @{
+                    Html.RenderAction("UrunKategoriPartial", "Home");
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+

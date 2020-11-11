@@ -1,0 +1,33 @@
+﻿@model ShopApp.WebUI.Models.tblMusteriler
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="card-header">
+    <a href="#" class="badge badge-dark">Profil</a>
+    <a href="#" class="badge badge-dark">Sipariş Listeniz</a>
+    <a href="#" class="badge badge-dark">Profil Düzenle</a>
+    <hr />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="@Model.resimUrl" width="800" height="400" />
+
+            </div>
+            <div class="col-md-8">
+                <p class="badge badge-light"><b style="color: firebrick">Adınız :</b> @Html.DisplayFor(Model => Model.ad)</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Soyadınız :</b> @Html.DisplayFor(Model => Model.soyad)</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Email :</b> @Html.DisplayFor(Model => Model.email)</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Şifreniz :</b> @Html.DisplayFor(Model => Model.sifre)</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Adresiniz :</b> @Html.DisplayFor(Model => Model.adres)</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">İl :</b> @Html.DisplayFor(Model => Model.il)</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">İlçe :</b> @Html.DisplayFor(Model => Model.ilce)</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Telefon :</b> @Html.DisplayFor(Model => Model.telefon)</p><hr />
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
