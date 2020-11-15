@@ -19,18 +19,20 @@ namespace ShopApp.WebUI.Controllers
         [Route("home")]
         public ActionResult Index(int sayfa=1)
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             var urunler = db.tblUrunler.ToList().OrderByDescending(x =>x.id).ToPagedList(sayfa, 8);
             return View(urunler);
         }
 
         public ActionResult UrunKategoriPartial()
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             return PartialView(db.tblKategoriler.Include("tblUrunler").ToList().OrderBy(x => x.ad));
         }
         [Route("home/urunincele/{ad}-{id:int}")]
         public ActionResult UrunIncele(int id)
         {
-
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -60,6 +62,7 @@ namespace ShopApp.WebUI.Controllers
         [Route("home/kategori/{ad}-{id:int}")]
         public ActionResult Kategori(int id,int sayfa = 1)
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             var kategori = db.tblUrunler.Include("tblKategoriler").OrderByDescending(x =>x.id).Where(x => x.tblKategoriler.id == id).ToList()
                 .ToPagedList(sayfa, 12);
             return View(kategori);
@@ -83,6 +86,7 @@ namespace ShopApp.WebUI.Controllers
 
         public ActionResult KayitOl()
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             return View();
         }
         [HttpPost]
@@ -107,6 +111,7 @@ namespace ShopApp.WebUI.Controllers
 
         public ActionResult Profil(int id )
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

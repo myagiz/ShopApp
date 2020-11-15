@@ -7,6 +7,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.UI.WebControls.WebParts;
 using PagedList;
 using ShopApp.WebUI.Models;
 
@@ -20,8 +21,33 @@ namespace ShopApp.WebUI.Controllers
         [Route("admin")]
         public ActionResult Index()
         {
+            var toplamsatis = db.tblSiparisKaydi.Count();
+            var toplamurun = db.tblUrunler.Count();
+            var toplammusteri = db.tblMusteriler.Count();
+            var toplamyonetici = db.tblYonetici.Count();
+            
+            ViewBag.ToplamSatis = toplamsatis;
+            ViewBag.ToplamUrun = toplamurun;
+            ViewBag.ToplamMusteri = toplammusteri;
+            ViewBag.ToplamYonetici = toplamyonetici;
+            
 
             return View();
+        }
+
+        public ActionResult SonUrunlerPartial(int sayfa=1)
+        {
+            return PartialView(db.tblUrunler.ToList().OrderByDescending(x => x.id).ToPagedList(sayfa,5));
+        }
+
+        public ActionResult SonSiparislerPartial(int sayfa=1)
+        {
+            return PartialView(db.tblSiparisKaydi.ToList().OrderByDescending(x => x.id).ToPagedList(sayfa,5));
+        }
+
+        public ActionResult ProfilPartial()
+        {
+            return PartialView(db.tblYonetici.ToList());
         }
 
         public ActionResult Kategoriler(int sayfa = 1)
@@ -450,7 +476,169 @@ namespace ShopApp.WebUI.Controllers
             return View(stokyonetimi);
         }
 
+        public ActionResult Musteriler(int sayfa=1)
+        {
+            var musteri = db.tblMusteriler.ToList().OrderByDescending(x =>x.id).ToPagedList(sayfa, 10);
+            return View(musteri);
+        }
+
+        public ActionResult Ayarlar()
+        {
+            return View(db.tblAyarlar.ToList());
+        }
+
+        public ActionResult AyarDuzenle(int id)
+        {
+            var k = db.tblAyarlar.Where(x => x.id == id).SingleOrDefault();
+            return View(k);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AyarDuzenle(int id, tblAyarlar p, HttpPostedFileBase logourl)
+        {
+            if (ModelState.IsValid)
+            {
+                var k = db.tblAyarlar.Where(x => x.id == id).SingleOrDefault();
+                if (logourl != null)
+                {
+                    if (System.IO.File.Exists(Server.MapPath(k.logourl)))
+                    {
+                        System.IO.File.Delete(Server.MapPath(k.logourl));
+                    }
+
+                    WebImage img = new WebImage(logourl.InputStream);
+                    FileInfo imginfo = new FileInfo(logourl.FileName);
+
+                    string logoimgname = Guid.NewGuid().ToString() + imginfo.Extension;
+                    img.Resize(800, 800);
+                    img.Save("~/Uploads/Ayarlar/" + logoimgname);
+
+                    p.logourl = "/Uploads/Ayarlar/" + logoimgname;
+                }
+
+                k.baslik = p.baslik;
+                k.footer = p.footer;
+                k.hakkimda = p.hakkimda;
+                k.logourl = p.logourl;
+                k.title = p.title;
+                db.SaveChanges();
+                return RedirectToAction("Ayarlar", "Admin");
+            }
+            return View(p);
+        }
+
+        public ActionResult ModulDuzenle1(int id)
+        {
+            var modul = db.tblAyarlar.Where(x => x.id == id).SingleOrDefault();
+            return View(modul);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ModulDuzenle1(int id, tblAyarlar p, HttpPostedFileBase modul1)
+        {
+            if (ModelState.IsValid)
+            {
+                var modul = db.tblAyarlar.Where(x => x.id == id).SingleOrDefault();
+                if (modul1 != null)
+                {
+                    if (System.IO.File.Exists(Server.MapPath(modul.modul1)))
+                    {
+                        System.IO.File.Delete(Server.MapPath(modul.modul1));
+                    }
+
+                    WebImage img = new WebImage(modul1.InputStream);
+                    FileInfo imginfo = new FileInfo(modul1.FileName);
+
+                    string modul1imgname = Guid.NewGuid().ToString() + imginfo.Extension;
+                    img.Resize(800, 800);
+                    img.Save("~/Uploads/Ayarlar/Modul/" + modul1imgname);
+
+                    p.modul1 = "/Uploads/Ayarlar/Modul/" + modul1imgname;
+                }
+                modul.modul1 = p.modul1;
+                
+                db.SaveChanges();
+                return RedirectToAction("Ayarlar", "Admin");
+            }
+            return View(p);
+        }
        
+        
+        public ActionResult ModulDuzenle2(int id)
+        {
+            var modultwo = db.tblAyarlar.Where(x => x.id == id).SingleOrDefault();
+            return View(modultwo);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ModulDuzenle2(int id, tblAyarlar p, HttpPostedFileBase modul2)
+        {
+            if (ModelState.IsValid)
+            {
+                var modultwo = db.tblAyarlar.Where(x => x.id == id).SingleOrDefault();
+                if (modul2 != null)
+                {
+                    if (System.IO.File.Exists(Server.MapPath(modultwo.modul2)))
+                    {
+                        System.IO.File.Delete(Server.MapPath(modultwo.modul2));
+                    }
+
+                    WebImage img = new WebImage(modul2.InputStream);
+                    FileInfo imginfo = new FileInfo(modul2.FileName);
+
+                    string modul2imgname = Guid.NewGuid().ToString() + imginfo.Extension;
+                    img.Resize(800, 800);
+                    img.Save("~/Uploads/Ayarlar/Modul/" + modul2imgname);
+
+                    p.modul2 = "/Uploads/Ayarlar/Modul/" + modul2imgname;
+                }
+              
+                modultwo.modul2 = p.modul2;
+              
+                db.SaveChanges();
+                return RedirectToAction("Ayarlar", "Admin");
+            }
+            return View(p);
+        }
+
+       
+        public ActionResult ModulDuzenle3(int id)
+        {
+            var modulthree = db.tblAyarlar.Where(x => x.id == id).SingleOrDefault();
+            return View(modulthree);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ModulDuzenle3(int id, tblAyarlar p, HttpPostedFileBase modul3)
+        {
+            if (ModelState.IsValid)
+            {
+                var modulthree = db.tblAyarlar.Where(x => x.id == id).SingleOrDefault();
+                if (modul3 != null)
+                {
+                    if (System.IO.File.Exists(Server.MapPath(modulthree.modul3)))
+                    {
+                        System.IO.File.Delete(Server.MapPath(modulthree.modul3));
+                    }
+
+                    WebImage img = new WebImage(modul3.InputStream);
+                    FileInfo imginfo = new FileInfo(modul3.FileName);
+
+                    string modul3imgname = Guid.NewGuid().ToString() + imginfo.Extension;
+                    img.Resize(800, 800);
+                    img.Save("~/Uploads/Ayarlar/Modul/" + modul3imgname);
+
+                    p.modul3 = "/Uploads/Ayarlar/Modul/" + modul3imgname;
+                }
+                modulthree.modul3 = p.modul3;
+                db.SaveChanges();
+                return RedirectToAction("Ayarlar", "Admin");
+            }
+            return View(p);
+        }
+
+
+
     }
 
 }

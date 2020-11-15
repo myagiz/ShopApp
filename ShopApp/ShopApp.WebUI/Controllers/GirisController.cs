@@ -13,6 +13,7 @@ namespace ShopApp.WebUI.Controllers
        ShopAppEntities db=new ShopAppEntities();
         public ActionResult Index()
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             return View();
         }
 
@@ -36,8 +37,15 @@ namespace ShopApp.WebUI.Controllers
                 Session["resimUrl"] = giris.resimUrl;
                 return RedirectToAction("Index", "Profil");
             }
-
+          
             @ViewBag.HataliGiris = "Email Adresiniz ve/veya Şifreniz Hatalı !";
+           
+            if (giris.email==null)
+            {
+                HttpNotFound();
+            }
+
+            
             return View(musteri);
         }
 
@@ -47,6 +55,39 @@ namespace ShopApp.WebUI.Controllers
             Session["email"] = null;
             Session.Abandon();
             return RedirectToAction("Index", "Giris");
+        }
+
+        public ActionResult Yonetici()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Yonetici(tblYonetici p)
+        {
+            var yonetici = db.tblYonetici.Where(x => x.email == p.email).SingleOrDefault();
+            if (yonetici.email==p.email && yonetici.aciklama==p.aciklama)
+            {
+                Session["yoneticiId"] = yonetici.id;
+                Session["yoneticiEmail"] = yonetici.email;
+                Session["yoneticiAd"] = yonetici.ad;
+                Session["yoneticiSoyad"] = yonetici.soyad;
+                Session["yoneticiSifre"] = yonetici.aciklama;
+                Session["yoneticiTelefon"] = yonetici.telefon;
+                Session["yoneticiResim"] = yonetici.resimUrl;
+                return RedirectToAction("Index", "Admin");
+            }
+            @ViewBag.HataliGiris = "Email Adresiniz ve/veya Şifreniz Hatalı !";
+            return View(p);
+        }
+
+        public ActionResult YoneticiCikis()
+        {
+            Session["yoneticiId"] = null;
+            Session["yoneticiEmail"] = null;
+            Session.Abandon();
+            return RedirectToAction("Yonetici", "Giris");
+
         }
     }
 }

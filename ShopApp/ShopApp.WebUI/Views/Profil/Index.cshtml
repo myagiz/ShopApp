@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<ShopApp.WebUI.Models.tblMusteriler>*@
-@model ShopApp.WebUI.Models.tblMusteriler
+﻿@model IEnumerable<ShopApp.WebUI.Models.tblMusteriler>
 
 @if (Session["id"] == null)
 {
@@ -11,28 +10,28 @@
 
 }
 
-    <div class="card-header">
-        <a href="/profil/" class="badge badge-light">Profil</a> -
-        <a href="/profil/duzenle/" class="badge badge-light">Profil Düzenle</a>
-        <hr />
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-8">
-                    <p class="badge badge-light"><b style="color: firebrick">Adınız :</b> @Session["ad"]</p><hr />
-                    <p class="badge badge-light"><b style="color: firebrick">Soyadınız :</b> @Session["soyad"]</p><hr />
-                    <p class="badge badge-light"><b style="color: firebrick">Email :</b> @Session["email"]</p><hr />
-                    <p class="badge badge-light"><b style="color: firebrick">Şifre :</b> @Session["sifre"]</p><hr />
-                    <p class="badge badge-light"><b style="color: firebrick">Telefon :</b> @Session["telefon"]</p><hr />
-                    <p class="badge badge-light"><b style="color: firebrick">İl:</b> @Session["il"]</p><hr />
-                    <p class="badge badge-light"><b style="color: firebrick">İlçe:</b> @Session["ilce"]</p><hr />
-                    <p class="badge badge-light"><b style="color: firebrick">Adres:</b> @Session["adres"]</p><hr />
-                </div>
-                <div class="col-4">
-                    <img src="@Session["resimUrl"]" width="450" height="400" class="img-fluid" />
-                </div>
+<div class="card-header">
+    <a href="/profil/" class="badge badge-light">Profil</a> -
+    @*<a href="/profil/duzenle/" class="badge badge-light">Profil Düzenle</a>*@
+    <hr />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                <p class="badge badge-light"><b style="color: firebrick">Adınız :</b> @Session["ad"]</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Soyadınız :</b> @Session["soyad"]</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Email :</b> @Session["email"]</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Şifre :</b> @Session["sifre"]</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Telefon :</b> @Session["telefon"]</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">İl:</b> @Session["il"]</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">İlçe:</b> @Session["ilce"]</p><hr />
+                <p class="badge badge-light"><b style="color: firebrick">Adres:</b> @Session["adres"]</p><hr />
+            </div>
+            <div class="col-4">
+                <img src="@Session["resimUrl"]" width="450" height="400" class="img-fluid" />
             </div>
         </div>
     </div>
+</div>
 
 
 

@@ -1,0 +1,31 @@
+﻿<div class="card-body">
+    <div class="chart-container-2">
+        <div align="center"><img src="@Session["yoneticiResim"]" width="150" height="150"></div>
+    </div>
+</div>
+<div class="table-responsive" style="margin-top: -30px">
+    <table class="table align-items-center">
+        <tbody>
+            <tr>
+                <td><i class="fa fa-address-book text-white mr-2"></i><span style="color: gold">Email :</span> @Session["yoneticiEmail"]</td>
+
+            </tr>
+            <tr>
+                <td><i class="fa fa-circle text-light-1 mr-2"></i><span style="color: gold">Ad ve Soyad :</span> @Session["yoneticiAd"] @Session["yoneticiSoyad"]</td>
+
+            </tr>
+            <tr>
+                <td><i class="fa fa-circle text-light-2 mr-2"></i><span style="color: gold">Tel No :</span> @Session["yoneticiTelefon"]</td>
+
+            </tr>
+            <tr>
+                <td><i class="fa fa-circle text-light-2 mr-2"></i><span style="color: gold">Departman :</span> Satış Görevlisi</td>
+
+            </tr>
+            <tr>
+                <td><a href="/Giris/YoneticiCikis/" class="badge badge-danger">PROFİLDEN ÇIKIŞ !</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

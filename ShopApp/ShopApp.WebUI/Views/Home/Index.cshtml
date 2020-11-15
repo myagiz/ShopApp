@@ -34,21 +34,17 @@
 
 <div class="row">
     <div class="col">
-        <img src="/SiteFiles/images/el.jpg" />
+        <img src="@ViewBag.Ayarlar.modul1" width="550" height="200" />
     </div>
     <div class="col">
-        <img src="/SiteFiles/images/unlost.jpg" />
+        <img src="@ViewBag.Ayarlar.modul2" width="550" height="200" />
     </div>
     <div class="col">
-        <img src="/SiteFiles/images/cyberpunk.jpg" />
+        <img src="@ViewBag.Ayarlar.modul3" width="550" height="200" />
     </div>
 </div>
 
 <div style="margin-left: 25px"><span class="badge badge-danger">SON EKLENEN ÜRÜNLER</span></div>
-
-@*<button type="button" class="btn btn-outline-danger btn-lg btn-block">SON EKLENEN ÜRÜNLER</button>*@
-
-
 
 @foreach (var p in Model)
 {

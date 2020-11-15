@@ -1,0 +1,50 @@
+﻿@using ShopApp.WebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@using ShopApp.WebUI.Helper
+@model PagedList<tblMusteriler>
+@{
+    ViewBag.Title = "Musteriler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>Tüm müşteriler listelenmiştir.</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Ad</th>
+                <th scope="col">Soyad</th>
+                <th scope="col">Email</th>
+                <th scope="col">Şifre</th>
+                <th scope="col">Telefon</th>
+                <th scope="col">Adres</th>
+                <th scope="col">İl</th>
+                <th scope="col">İlçe</th>
+                <th scope="col">Fotoğraf</th>
+            </tr>
+        </thead>
+        @foreach (var p in Model)
+        {
+            <tbody>
+                <tr>
+                    <th scope="row">#@p.id</th>
+                    <td>@p.ad</td>
+                    <td>@p.soyad</td>
+                    <td>@p.email</td>
+                    <td>@p.sifre</td>
+                    <td>@p.telefon</td>
+                    <td>@Html.Raw(p.adres.Substring(0,Math.Min(p.adres.Length,100)))</td>
+                    <td>@p.il</td>
+                    <td>@p.ilce</td>
+                    <td><img src="@p.resimUrl" width="75" height="75" /></td>
+                </tr>
+            </tbody>
+        }
+    </table>
+    <ul class="pagination pagination-sm">
+        @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Musteriler", new { sayfa }))
+    </ul>
+</div>
+
