@@ -32,6 +32,7 @@ namespace ShopApp.WebUI.Models
         public virtual DbSet<tblKategoriler> tblKategoriler { get; set; }
         public virtual DbSet<tblLog> tblLog { get; set; }
         public virtual DbSet<tblMarkalar> tblMarkalar { get; set; }
+        public virtual DbSet<tblMenuler> tblMenuler { get; set; }
         public virtual DbSet<tblMusteriler> tblMusteriler { get; set; }
         public virtual DbSet<tblSiparisKaydi> tblSiparisKaydi { get; set; }
         public virtual DbSet<tblSlider> tblSlider { get; set; }

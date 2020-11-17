@@ -1,0 +1,41 @@
+﻿@using ShopApp.WebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@using ShopApp.WebUI.Helper
+@model List<tblMenuler>
+@{
+    ViewBag.Title = "Menuler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h7><a href="/admin/menuekle/" class="badge badge-light">Menü Ekle</a></h7>
+<hr />
+<p>Tüm menüler listelenmiştir.</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Ad</th>
+                <th scope="col">Metin</th>
+                <th scope="col">İncele</th>
+                <th scope="col">Düzenle</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        @foreach (var p in Model)
+        {
+            <tbody>
+                <tr>
+                    <th scope="row">@p.baslik</th>
+                    <td>@Html.Raw(p.metin.Substring(0, Math.Min(p.metin.Length, 150))) ...</td>
+                    <td><a href="/admin/menu/@SeoHelper.ToSeoUrl(p.baslik).ToLower()=@p.id" class="btn btn-success">İncele</a></td>
+                    <td><a href="/admin/menuduzenle/@p.id" class="btn btn-dark">Düzenle</a></td>
+                    <td>@Html.ActionLink("Sil", "MenuSil", new { id = p.id }, new { @class = "btn btn-light", onclick = "return confirm('Menü Silmek İstediğinize Emin Misiniz?')" })</td>
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>
+
+
+

@@ -81,6 +81,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tblMenuler">
+      <EntityTypeMapping TypeName="ShopAppModel.tblMenuler">
+        <MappingFragment StoreEntitySet="tblMenuler">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="metin" ColumnName="metin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tblMusteriler">
       <EntityTypeMapping TypeName="ShopAppModel.tblMusteriler">
         <MappingFragment StoreEntitySet="tblMusteriler">
@@ -106,6 +115,7 @@
           <ScalarProperty Name="tarih" ColumnName="tarih" />
           <ScalarProperty Name="onay" ColumnName="onay" />
           <ScalarProperty Name="musteri" ColumnName="musteri" />
+          <ScalarProperty Name="miktar" ColumnName="miktar" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -152,6 +162,7 @@
           <ScalarProperty Name="stok" ColumnName="stok" />
           <ScalarProperty Name="marka" ColumnName="marka" />
           <ScalarProperty Name="cesit" ColumnName="cesit" />
+          <ScalarProperty Name="miktar" ColumnName="miktar" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -73,6 +73,14 @@
     <Property Name="kategori" Type="int" />
     <Property Name="cesit" Type="int" />
   </EntityType>
+  <EntityType Name="tblMenuler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="baslik" Type="varchar" MaxLength="50" />
+    <Property Name="metin" Type="varchar(max)" />
+  </EntityType>
   <EntityType Name="tblMusteriler">
     <Key>
       <PropertyRef Name="id" />
@@ -98,6 +106,7 @@
     <Property Name="tarih" Type="datetime" />
     <Property Name="onay" Type="varchar" MaxLength="50" />
     <Property Name="musteri" Type="int" />
+    <Property Name="miktar" Type="int" />
   </EntityType>
   <EntityType Name="tblSlider">
     <Key>
@@ -125,7 +134,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ad" Type="varchar" MaxLength="250" />
-    <Property Name="aciklama" Type="varchar" MaxLength="750" />
+    <Property Name="aciklama" Type="varchar(max)" />
     <Property Name="resimUrl" Type="varchar(max)" />
     <Property Name="resimUrl2" Type="nvarchar(max)" />
     <Property Name="resimUrl3" Type="nvarchar(max)" />
@@ -141,6 +150,7 @@
     <Property Name="stok" Type="int" />
     <Property Name="marka" Type="int" />
     <Property Name="cesit" Type="int" />
+    <Property Name="miktar" Type="int" />
   </EntityType>
   <EntityType Name="tblYetki">
     <Key>
@@ -363,6 +373,7 @@
     <EntitySet Name="tblKategoriler" EntityType="Self.tblKategoriler" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblLog" EntityType="Self.tblLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblMarkalar" EntityType="Self.tblMarkalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMenuler" EntityType="Self.tblMenuler" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblMusteriler" EntityType="Self.tblMusteriler" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblSiparisKaydi" EntityType="Self.tblSiparisKaydi" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblSlider" EntityType="Self.tblSlider" Schema="dbo" store:Type="Tables" />

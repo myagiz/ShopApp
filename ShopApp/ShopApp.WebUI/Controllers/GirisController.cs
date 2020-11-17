@@ -21,6 +21,7 @@ namespace ShopApp.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(tblMusteriler musteri)
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             var giris = db.tblMusteriler.Where(x => x.email == musteri.email).SingleOrDefault();
             if (giris.email==musteri.email && giris.sifre==musteri.sifre)
             {

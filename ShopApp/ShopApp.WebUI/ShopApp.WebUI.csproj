@@ -777,6 +777,7 @@
     <Content Include="Content\ckeditor\lang\vi.js" />
     <Content Include="Content\ckeditor\lang\zh-cn.js" />
     <Content Include="Content\ckeditor\lang\zh.js" />
+    <Content Include="Content\ckeditor\plugin.js" />
     <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
     <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\af.js" />
     <Content Include="Content\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
@@ -1108,16 +1109,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\ckeditor\CHANGES.md" />
     <Content Include="Content\ckeditor\LICENSE.md" />
     <Content Include="Content\ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -1133,7 +1124,24 @@
     <Content Include="Content\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Content\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Content\ckeditor\skins\moono-lisa\readme.md" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.7-vsdoc.js" />
+    <Content Include="Models\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\i18n\af.js" />
     <Content Include="Scripts\i18n\ar.js" />
     <Content Include="Scripts\i18n\az.js" />
@@ -1316,6 +1324,9 @@
     <Compile Include="Models\tblMarkalar.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblMenuler.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblMusteriler.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -1367,13 +1378,6 @@
     <Content Include="AdminPanelFiles\assets\fonts\weathericons-regular-webfont.woff2" />
     <Content Include="AdminPanelFiles\documentation\assets\.DS_Store" />
     <Content Include="AdminPanelFiles\documentation\assets\blueprint-css\plugins\.DS_Store" />
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
@@ -1424,6 +1428,13 @@
     <Content Include="Views\Admin\ModulDuzenle1.cshtml" />
     <Content Include="Views\Admin\ModulDuzenle2.cshtml" />
     <Content Include="Views\Admin\ModulDuzenle3.cshtml" />
+    <Content Include="Views\Admin\Menuler.cshtml" />
+    <Content Include="Views\Admin\MenuEkle.cshtml" />
+    <Content Include="Views\Admin\MenuIncele.cshtml" />
+    <Content Include="Views\Admin\MenuDuzenle.cshtml" />
+    <Content Include="Views\Home\MenuPartial.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\Sepet.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

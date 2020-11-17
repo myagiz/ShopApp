@@ -15,12 +15,14 @@ namespace ShopApp.WebUI.Controllers
        ShopAppEntities db=new ShopAppEntities();
         public ActionResult Index()
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             var profil = db.tblMusteriler.ToList();
             return View(profil);
         }
         [HttpGet]
         public ActionResult Duzenle(int id)
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             var profil = db.tblMusteriler.Where(x => x.id == id).SingleOrDefault();
             return View(profil);
         }

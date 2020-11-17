@@ -4,7 +4,11 @@
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
 }
 
-
+<div class="alert alert-danger" role="alert">
+    <p align="center">Websitemizden alışveriş yapmak isteyen kişiler giriş yapmak zorundadırlar.</p>
+    <hr>
+    <p class="mb-0" align="center">Eğer üyeliğiniz yok ise oluşturmak için <a href="/home/kayitol/">tıklayınız.</a> </p>
+</div>
 
 @using (Html.BeginForm("Index", "Giris", FormMethod.Post))
 {

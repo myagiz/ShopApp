@@ -4,18 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f6769dfec5964a01837c3721148ff50b" Name="Diagram1">
+      <Diagram DiagramId="b921c2dc3b564bb9a46efdeed24e4fd2" Name="Diagram1">
         <EntityTypeShape EntityType="ShopAppModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopAppModel.tblAyarlar" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopAppModel.tblCesitler" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopAppModel.tblCesitler" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopAppModel.tblIletisim" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopAppModel.tblKategoriler" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopAppModel.tblKategoriler" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopAppModel.tblLog" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopAppModel.tblMarkalar" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopAppModel.tblMusteriler" Width="1.5" PointX="14.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopAppModel.tblMarkalar" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopAppModel.tblMenuler" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopAppModel.tblMusteriler" Width="1.5" PointX="14.25" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopAppModel.tblSiparisKaydi" Width="1.5" PointX="12" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopAppModel.tblSlider" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopAppModel.tblStokYonetimi" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopAppModel.tblSlider" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopAppModel.tblStokYonetimi" Width="1.5" PointX="7.5" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopAppModel.tblUrunler" Width="1.5" PointX="9.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopAppModel.tblYetki" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopAppModel.tblYonetici" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />

@@ -16,6 +16,7 @@
                 <thead>
                     <tr>
                         <td>NO</td>
+                        <td>RESİM</td>
                         <td>ÜRÜN ADI</td>
                         <td>FİYAT</td>
                         <td>KALDIR</td>
@@ -24,6 +25,7 @@
                 <tbody>
                     <tr>
                         <th>#1</th>
+                        <th><img src="@Model.tblUrunler.resimUrl" width="75" height="45"/></th>
                         <th>@Html.DisplayFor(Model => Model.tblUrunler.ad)</th>
                         <th>@Html.DisplayFor(Model => Model.tblUrunler.fiyat) TL</th>
                         <th><a href="#" class="badge badge-danger">KALDIR</a></th>

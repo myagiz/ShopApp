@@ -50,6 +50,60 @@ namespace ShopApp.WebUI.Controllers
             return PartialView(db.tblYonetici.ToList());
         }
 
+        public ActionResult Menuler()
+        {
+            var menuler = db.tblMenuler.ToList();
+            return View(menuler);
+        }
+
+        public ActionResult MenuEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult MenuEkle(tblMenuler p)
+        {
+            db.tblMenuler.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Menuler", "Admin");
+        }
+        [Route("admin/menu/{ad}={id:int}")]
+        public ActionResult MenuIncele(int id)
+        {
+            var menuincele = db.tblMenuler.Find(id);
+            return View(menuincele);
+        }
+
+        public ActionResult MenuSil(int id)
+        {
+            var menu = db.tblMenuler.Find(id);
+            db.tblMenuler.Remove(menu);
+            db.SaveChanges();
+            return RedirectToAction("Menuler", "Admin");
+        }
+
+        public ActionResult MenuDuzenle(int id)
+        {
+            var menu = db.tblMenuler.Where(x => x.id == id).SingleOrDefault();
+            return View(menu);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult MenuDuzenle(int id, tblMenuler p)
+        {
+            if (ModelState.IsValid)
+            {
+                var menu = db.tblMenuler.Where(x => x.id == id).SingleOrDefault();
+                menu.baslik = p.baslik;
+                menu.metin = p.metin;
+                db.SaveChanges();
+                return RedirectToAction("Menuler", "Admin");
+            }
+            return View(p);
+        }
         public ActionResult Kategoriler(int sayfa = 1)
         {
             var kategorilistesi = db.tblKategoriler.ToList().ToPagedList(sayfa, 10);

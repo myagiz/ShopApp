@@ -1,4 +1,5 @@
 ﻿@model ShopApp.WebUI.Models.tblUrunler
+
 @{
     ViewBag.Title = "UrunIncele";
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
@@ -23,49 +24,28 @@
                     <h2>@Html.DisplayFor(model => model.ad))</h2>
                     <h1><span class="badge badge-dark">Ürün Kodu #@Model.id</span></h1>
                     <p><span class="badge badge-danger">@Model.tblKategoriler.ad</span>&nbsp;&nbsp;<span class="badge badge-warning">@Model.tblCesitler.ad</span>&nbsp;&nbsp;<span class="badge badge-info">@Model.tblMarkalar.ad</span></p>
-                    @*<p>@Html.Raw(Model.aciklama)</p>*@
+                    <hr/>
                     <div class="price">
-                        <p>Fiyat: <span>@Html.DisplayFor(model => model.fiyat)</span></p>
+                        <p><span>@Html.DisplayFor(model => model.fiyat) TL</span> </p>
                     </div>
-                    <div class="available">
-                        <p>Available Options :</p>
-                        <ul>
-                            <li>
-                                Color:
-                                <select>
-                                    <option>Silver</option>
-                                    <option>Black</option>
-                                    <option>Dark Black</option>
-                                    <option>Red</option>
-                                </select>
-                            </li>
-                            <li>
-                                Size:<select>
-                                    <option>Large</option>
-                                    <option>Medium</option>
-                                    <option>small</option>
-                                    <option>Large</option>
-                                    <option>small</option>
-                                </select>
-                            </li>
-                            <li>
-                                Quality:<select>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="share-desc">
-                        <div class="clear"></div>
-                    </div>
-                    <div class="wish-list">
-                        <ul>
-                            <li class="wish"><a href="#">Sepete Ekle</a></li>
-                        </ul>
+                    <div align="right" class="add-cart">
+                        @foreach (var item in Model.tblSiparisKaydi)
+                        {
+                            if (item.miktar > 0)
+                            {
+                                using (Html.BeginForm("SepeteEkle", "Home", new { urunId = item.id, url = "Index" }, FormMethod.Post))
+                                {
+                                    <button type="submit" class="pull-right"><i class="fa fa-shopping-cart">Sepete Ekle</i></button>
+                                    <a href="/sepet/" class="btn btn-danger">Sepete Ekle</a>
+                                }
+                                <p>Available</p>
+                            }
+                            else
+                            {
+                                <p>Not Available</p>
+                            }
+                        }
+
                     </div>
                 </div>
                 <div class="clear"></div>

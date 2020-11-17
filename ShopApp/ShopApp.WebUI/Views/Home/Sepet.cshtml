@@ -1,0 +1,69 @@
+﻿@using ShopApp.WebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@using ShopApp.WebUI.Helper
+@model List<tblSiparisKaydi>
+@{
+    ViewBag.Title = "Sepet";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+@if (Session["id"] == null)
+{
+    @ViewBag.GirisYap
+    Response.Redirect("/Giris/");
+}
+
+@if (Session["id"] != null)
+{
+    <div class="alert alert-dark" role="alert">
+        Ürün Sepetinizi Onaylamadan Çıkmayınız !
+    </div>
+    <div class="card-header">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <table class="table table-hover" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <td>NO</td>
+                            <td>RESİM</td>
+                            <td>ÜRÜN ADI</td>
+                            <td>FİYAT</td>
+                            <td>KALDIR</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var urunler in Model)
+                        {
+                            <tr>
+                                <th>@urunler.tblUrunler.id</th>
+                                <th><img src="@urunler.tblUrunler.resimUrl" width="75" height="45" /></th>
+                                <th>@urunler.tblUrunler.ad</th>
+                                <th>@urunler.tblUrunler.fiyat</th>
+                                <th><a href="#" class="badge badge-danger">KALDIR</a></th>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            @*<div class="col-sm-4">
+                <h1>SİPARİŞ BİLGİLERİNİZ</h1><hr />
+                <p>Ad ve Soyad : @Html.DisplayFor(Model => Model.tblMusteriler1.ad)&nbsp;@Html.DisplayFor(Model => Model.tblMusteriler1.soyad)</p><br />
+                <p>Sipariş Tarihi : @Html.DisplayFor(Model => Model.tarih)</p><br />
+                <p>Adres : @Html.DisplayFor(Model => Model.tblMusteriler1.adres)&nbsp;@Html.DisplayFor(Model => Model.tblMusteriler1.il)&nbsp;@Html.DisplayFor(Model => Model.tblMusteriler1.ilce)</p><br />
+                <p>Telefon : @Html.DisplayFor(Model => Model.tblMusteriler1.telefon)</p><br />
+                <p>Email Adresiniz : @Html.DisplayFor(Model => Model.tblMusteriler1.email)</p><br />
+            </div>*@
+        </div>
+        <hr />
+        <p align="right"> <button class="btn btn-success">Onayla ve Ödeme Yöntemine Geç</button></p>
+    </div>
+
+
+}
+
+
+

@@ -78,6 +78,14 @@
           <Property Name="kategori" Type="int" />
           <Property Name="cesit" Type="int" />
         </EntityType>
+        <EntityType Name="tblMenuler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="baslik" Type="varchar" MaxLength="50" />
+          <Property Name="metin" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="tblMusteriler">
           <Key>
             <PropertyRef Name="id" />
@@ -103,6 +111,7 @@
           <Property Name="tarih" Type="datetime" />
           <Property Name="onay" Type="varchar" MaxLength="50" />
           <Property Name="musteri" Type="int" />
+          <Property Name="miktar" Type="int" />
         </EntityType>
         <EntityType Name="tblSlider">
           <Key>
@@ -130,7 +139,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ad" Type="varchar" MaxLength="250" />
-          <Property Name="aciklama" Type="varchar" MaxLength="750" />
+          <Property Name="aciklama" Type="varchar(max)" />
           <Property Name="resimUrl" Type="varchar(max)" />
           <Property Name="resimUrl2" Type="nvarchar(max)" />
           <Property Name="resimUrl3" Type="nvarchar(max)" />
@@ -146,6 +155,7 @@
           <Property Name="stok" Type="int" />
           <Property Name="marka" Type="int" />
           <Property Name="cesit" Type="int" />
+          <Property Name="miktar" Type="int" />
         </EntityType>
         <EntityType Name="tblYetki">
           <Key>
@@ -368,6 +378,7 @@
           <EntitySet Name="tblKategoriler" EntityType="Self.tblKategoriler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblLog" EntityType="Self.tblLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblMarkalar" EntityType="Self.tblMarkalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMenuler" EntityType="Self.tblMenuler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblMusteriler" EntityType="Self.tblMusteriler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSiparisKaydi" EntityType="Self.tblSiparisKaydi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSlider" EntityType="Self.tblSlider" Schema="dbo" store:Type="Tables" />
@@ -531,6 +542,14 @@
           <NavigationProperty Name="tblStokYonetimi" Relationship="Self.FK_tblStokYonetimi_tblMarkalar" FromRole="tblMarkalar" ToRole="tblStokYonetimi" />
           <NavigationProperty Name="tblUrunler" Relationship="Self.FK_tblUrunler_tblMarkalar" FromRole="tblMarkalar" ToRole="tblUrunler" />
         </EntityType>
+        <EntityType Name="tblMenuler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="baslik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="metin" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="tblMusteriler">
           <Key>
             <PropertyRef Name="id" />
@@ -558,6 +577,7 @@
           <Property Name="tarih" Type="DateTime" Precision="3" />
           <Property Name="onay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="musteri" Type="Int32" />
+          <Property Name="miktar" Type="Int32" />
           <NavigationProperty Name="tblMusteriler" Relationship="Self.FK_tblMusteriler_tblSiparisKaydi" FromRole="tblSiparisKaydi" ToRole="tblMusteriler" />
           <NavigationProperty Name="tblMusteriler1" Relationship="Self.FK_tblSiparisKaydi_tblMusteriler" FromRole="tblSiparisKaydi" ToRole="tblMusteriler" />
           <NavigationProperty Name="tblUrunler" Relationship="Self.FK_tblSiparisKaydi_tblUrunler" FromRole="tblSiparisKaydi" ToRole="tblUrunler" />
@@ -593,7 +613,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ad" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="aciklama" Type="String" MaxLength="750" FixedLength="false" Unicode="false" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="resimUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="resimUrl2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="resimUrl3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -609,6 +629,7 @@
           <Property Name="stok" Type="Int32" />
           <Property Name="marka" Type="Int32" />
           <Property Name="cesit" Type="Int32" />
+          <Property Name="miktar" Type="Int32" />
           <NavigationProperty Name="tblCesitler" Relationship="Self.FK_tblUrunler_tblCesitler" FromRole="tblUrunler" ToRole="tblCesitler" />
           <NavigationProperty Name="tblKategoriler" Relationship="Self.FK_tblUrunler_tblKategoriler" FromRole="tblUrunler" ToRole="tblKategoriler" />
           <NavigationProperty Name="tblMarkalar" Relationship="Self.FK_tblUrunler_tblMarkalar" FromRole="tblUrunler" ToRole="tblMarkalar" />
@@ -840,6 +861,7 @@
           <EntitySet Name="tblKategoriler" EntityType="Self.tblKategoriler" />
           <EntitySet Name="tblLog" EntityType="Self.tblLog" />
           <EntitySet Name="tblMarkalar" EntityType="Self.tblMarkalar" />
+          <EntitySet Name="tblMenuler" EntityType="Self.tblMenuler" />
           <EntitySet Name="tblMusteriler" EntityType="Self.tblMusteriler" />
           <EntitySet Name="tblSiparisKaydi" EntityType="Self.tblSiparisKaydi" />
           <EntitySet Name="tblSlider" EntityType="Self.tblSlider" />
@@ -998,6 +1020,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblMenuler">
+            <EntityTypeMapping TypeName="ShopAppModel.tblMenuler">
+              <MappingFragment StoreEntitySet="tblMenuler">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="baslik" ColumnName="baslik" />
+                <ScalarProperty Name="metin" ColumnName="metin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tblMusteriler">
             <EntityTypeMapping TypeName="ShopAppModel.tblMusteriler">
               <MappingFragment StoreEntitySet="tblMusteriler">
@@ -1023,6 +1054,7 @@
                 <ScalarProperty Name="tarih" ColumnName="tarih" />
                 <ScalarProperty Name="onay" ColumnName="onay" />
                 <ScalarProperty Name="musteri" ColumnName="musteri" />
+                <ScalarProperty Name="miktar" ColumnName="miktar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1069,6 +1101,7 @@
                 <ScalarProperty Name="stok" ColumnName="stok" />
                 <ScalarProperty Name="marka" ColumnName="marka" />
                 <ScalarProperty Name="cesit" ColumnName="cesit" />
+                <ScalarProperty Name="miktar" ColumnName="miktar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

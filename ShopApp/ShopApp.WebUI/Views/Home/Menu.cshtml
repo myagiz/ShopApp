@@ -1,0 +1,16 @@
+﻿@model ShopApp.WebUI.Models.tblMenuler
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div style="margin-top: -7px; margin-left: 13px; margin-bottom: -5px">
+    <span class="badge badge-dark"><i>ANASAYFA / @Html.DisplayFor(model => model.baslik)</i> </span>
+</div>
+<hr />
+<div style="margin-top: 10px">
+    <div class="container-fluid">
+        <p style="margin-top: 5px">@Html.Raw(Model.metin)</p>
+    </div>
+</div>
+

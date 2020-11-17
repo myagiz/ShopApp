@@ -25,6 +25,7 @@ namespace ShopApp.WebUI.Models
         public Nullable<System.DateTime> tarih { get; set; }
         public string onay { get; set; }
         public Nullable<int> musteri { get; set; }
+        public Nullable<int> miktar { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblMusteriler> tblMusteriler { get; set; }

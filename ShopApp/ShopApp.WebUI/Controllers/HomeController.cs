@@ -23,6 +23,29 @@ namespace ShopApp.WebUI.Controllers
             var urunler = db.tblUrunler.ToList().OrderByDescending(x =>x.id).ToPagedList(sayfa, 8);
             return View(urunler);
         }
+       
+        public ActionResult MenuPartial()
+        {
+            return PartialView(db.tblMenuler.ToList().OrderBy(x =>x.id));
+        }
+        [Route("home/{ad}-{id:int}")]
+        public ActionResult Menu(int id)
+        {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
+            if (id== null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            tblMenuler p = db.tblMenuler.Find(id);
+            if (p == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(p);
+
+        }
 
         public ActionResult UrunKategoriPartial()
         {
@@ -70,6 +93,7 @@ namespace ShopApp.WebUI.Controllers
 
         public ActionResult SiparisKaydi(int id)
         {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -126,6 +150,107 @@ namespace ShopApp.WebUI.Controllers
             return View(p);
         }
 
+        public ActionResult Sepet()
+        {
+            var urunler = db.tblUrunler.ToList();
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
+            return View(urunler);
+        }
+
+        public ActionResult DecreaseQty(int urunId)
+        {
+            if (Session["sepet"] != null)
+            {
+                List<tblSiparisKaydi> sepet = (List<tblSiparisKaydi>)Session["sepet"];
+                var product = db.tblUrunler.Find(urunId);
+                foreach (var item in sepet)
+                {
+                    if (item.tblUrunler.id == urunId)
+                    {
+                        var prevQty = item.miktar;
+                        if (prevQty > 0)
+                        {
+                            sepet.Remove(item);
+                            sepet.Add(new tblSiparisKaydi()
+                            {
+                                tblUrunler = product,
+                                miktar = prevQty - 1
+                            });
+                        }
+                        break;
+                    }
+                }
+                Session["sepet"] = sepet;
+            }
+            return Redirect("Checkout");
+        }
+
+        public ActionResult SepeteEkle(int urunId, string url)
+        {
+            if (Session["sepet"]==null)
+            {
+                List<tblSiparisKaydi>sepet=new List<tblSiparisKaydi>();
+                var urun = db.tblUrunler.Find(urunId);
+                sepet.Add(new tblSiparisKaydi()
+                {
+                    tblUrunler = urun,
+                    miktar=1
+                   
+                });
+                Session["sepet"] = sepet;
+            }
+            else
+            {
+                List<tblSiparisKaydi> sepet = (List <tblSiparisKaydi>) Session["sepet"];
+                var count = sepet.Count;
+                var urun = db.tblUrunler.Find(urunId);
+                for (int i = 0; i < count; i++)
+                {
+                    if (sepet[i].tblUrunler.id==urunId)
+                    {
+                        var prevQty = sepet[i].miktar;
+                        sepet.Remove(sepet[i]);
+                        sepet.Add(new tblSiparisKaydi()
+                        {
+                            tblUrunler = urun,
+                            miktar=prevQty+1
+                        });
+                        break;
+                    }
+                    else
+                    {
+                        var p = sepet.Where(x => x.tblUrunler.id == urunId).SingleOrDefault();
+                        if (p==null)
+                        {
+                            sepet.Add(new tblSiparisKaydi()
+                            {
+                                tblUrunler = urun,
+                                miktar = 1
+                            });
+                        }
+                    }
+                }
+
+                Session["sepet"] = sepet;
+            }
+
+            return Redirect(url);
+        }
+
+        public ActionResult SepetSil(int urunId)
+        {
+            List<tblSiparisKaydi> sepet = (List<tblSiparisKaydi>)Session["sepet"];
+            foreach (var item in sepet)
+            {
+                if (item.tblUrunler.id== urunId)
+                {
+                    sepet.Remove(item);
+                    break;
+                }
+            }
+            Session["sepet"] = sepet;
+            return Redirect("Index");
+        }
         
     }
 }

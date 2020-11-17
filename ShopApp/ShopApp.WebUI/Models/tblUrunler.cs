@@ -39,6 +39,7 @@ namespace ShopApp.WebUI.Models
         public Nullable<int> stok { get; set; }
         public Nullable<int> marka { get; set; }
         public Nullable<int> cesit { get; set; }
+        public Nullable<int> miktar { get; set; }
     
         public virtual tblCesitler tblCesitler { get; set; }
         public virtual tblKategoriler tblKategoriler { get; set; }
