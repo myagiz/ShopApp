@@ -1,0 +1,22 @@
+﻿@model ShopApp.WebUI.Models.tblMenuler
+@{
+    ViewBag.Title = "MenuIncele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div id="menuincele">
+    <h4>Menü İncelemesi</h4><hr />
+    <div>
+        <div>
+            <h6>@Html.DisplayFor(model => model.baslik)</h6>
+            <hr />
+            <h6>@Html.Raw(Model.metin)</h6>
+        </div>
+        <a href="/Admin/Menuler" class="badge badge-warning">Menü Listesine Geri Dön </a>
+    </div>
+    <!--/row-->
+</div>
+
+
+

@@ -1,0 +1,24 @@
+﻿@using ShopApp.WebUI.Helper
+@model IEnumerable<ShopApp.WebUI.Models.tblUrunler>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th scope="col">Ürün Kod</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Resim</th>
+            <th scope="col">Ürün Adı</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.tblKategoriler.ad</td>
+            <td><img src="@item.resimUrl" width="45" height="45" /></td>
+            <td><a href="/admin/urun/@SeoHelper.ToSeoUrl(item.ad).ToLower()=@item.id">@Html.Raw(item.ad.Substring(0, Math.Min(item.ad.Length, 60))) ...</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

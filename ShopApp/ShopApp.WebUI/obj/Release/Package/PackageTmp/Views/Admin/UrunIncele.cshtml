@@ -1,0 +1,59 @@
+﻿@model ShopApp.WebUI.Models.tblUrunler
+@{
+    ViewBag.Title = "UrunIncele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="tab-content p-3">
+    <div class="tab-pane active" id="urunincele">
+        <h4 class="mb-3">Ürün İncelemesi</h4><hr />
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Ürün Kodu : @Html.DisplayFor(model => model.id)</h6><hr>
+                <h6 style="color: goldenrod">Ürün Adı : </h6>@Html.DisplayFor(model => model.ad)
+                <hr>
+                <h6 style="color: goldenrod">Ürün Özellikleri : </h6>@Html.Raw(Model.aciklama)
+                <hr>
+                <span class="btn btn-dark" style="color: goldenrod">Fiyat : @Html.DisplayFor(model => model.fiyat) TL</span>
+
+
+            </div>
+            <div class="col-md-6">
+                <h6>Ürün Resimleri</h6>
+                <hr>
+                <h7><img src="@Model.resimUrl" width="150" height="250" /></h7>
+            </div>
+
+            <div class="col-md-12">
+                <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Ürün Bilgileri</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h7 style="color:goldenrod">Ürün Kategorisi : </h7> @Html.DisplayFor(model => model.tblKategoriler.ad)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h7 style="color: goldenrod">Ürün Çeşidi :</h7>  @Html.DisplayFor(model => model.tblCesitler.ad)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h7 style="color: goldenrod">Ürün Markası : </h7> @Html.DisplayFor(model => model.tblMarkalar.ad)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h7 style="color: goldenrod">Ürün Rengi :  </h7> @Html.DisplayFor(model => model.renk)
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--/row-->
+    </div>
+
+</div>

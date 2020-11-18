@@ -1,0 +1,102 @@
+﻿@using ShopApp.WebUI.Models.Home
+
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<h2>SEPETİNİZDEKİ TÜM ÜRÜNLER LİSTELENMİŞTİR.</h2>
+@if (Session["cart"] == null)
+{
+    <div class="alert alert-danger">
+        <strong>Sepetinizde ürün bulunmamaktadır !</strong>
+    </div>
+
+}
+else
+{
+    <div class="card-header">
+        <div class="row">
+            <div class="col-sm-8">
+                <table class="table table-hover" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <td>ÜRÜN NO</td>
+                        <td>RESİM</td>
+                        <td>ÜRÜN</td>
+                        <td>ADET</td>
+                        <td>KALDIR</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (Item item in (List<Item>) Session["cart"])
+                    {
+                        <tr>
+                            <th>@item.Product.id</th>
+                            <th><img src="@item.Product.resimUrl" width="75" height="45"/></th>
+                            <th>@item.Product.ad</th>
+                            <th>@item.Quantity</th>
+                            <th>
+
+                                <a href="@Url.Action("RemoveFromCart", "Home", new {productId = item.Product.id, url = "Checkout"})" class="badge badge-danger">
+                                X</a>
+                            </th>
+                        </tr>
+                    }
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <h1>SİPARİŞ BİLGİLERİNİZ</h1><hr />
+                <p><img src="@Session["resimUrl"]" height="150" width="150"/> </p><br />
+                <p>Ad ve Soyad : @Session["ad"]&nbsp;@Session["soyad"] </p><br />
+                <p>Adres : @Session["adres"]&nbsp;@Session["il"]&nbsp;@Session["ilce"] </p><br />
+                <p>Telefon : @Session["telefon"]</p><br />
+                <p>Email Adresiniz : @Session["email"]</p><br />
+            </div>
+        </div>
+        <hr />
+        <a class="btn btn-success" href="@Url.Action("CheckoutDetails","Home")">İlerle ve Fiyat Hesapla >></a>
+    </div>
+
+
+
+
+    @*<table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Ürün Kod</th>
+            <th>Resim</th>
+            <th>Kategori</th>
+            <th>Ürün</th>
+            <th>Adet</th>
+            <th>Add</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (Item item in (List<Item>)Session["cart"])
+        {
+            <tr>
+                <td>@item.Product.id</td>
+                <td><img src="@item.Product.resimUrl" width="45" height="45"/></td>
+                <td>@item.Product.tblKategoriler.ad</td>
+                <td>@item.Product.ad</td>
+                <td>@item.Quantity</td>
+                <td>
+                    <a href="@Url.Action("AddToCart", "Home", new { productId = item.Product.id, url="Checkout" })">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                    <a href="@Url.Action("DecreaseQty", "Home", new { productId = item.Product.id })">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="@Url.Action("CheckoutDetails","Home")">İlerle >></a>*@
+
+}
+

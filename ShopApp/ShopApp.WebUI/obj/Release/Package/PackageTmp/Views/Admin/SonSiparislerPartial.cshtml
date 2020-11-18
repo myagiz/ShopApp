@@ -1,0 +1,33 @@
+﻿@using ShopApp.WebUI.Helper
+@model IEnumerable<ShopApp.WebUI.Models.tblSiparisKaydi>
+<table class="table align-items-center table-flush table-borderless">
+    <thead>
+    <tr>
+        <th scope="col">Kod</th>
+        <th scope="col">Ürün Resim</th>
+        <th scope="col">Ürün Adı</th>
+        <th scope="col">Sipariş Tarihi</th>
+        <th scope="col">Fiyat</th>
+        <th scope="col">Alıcı Adı ve Soyadı</th>
+        <th scope="col">Telefon</th>
+        <th scope="col">Mail</th>
+            
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="row">#@item.id</th>
+            <td><img src="@item.tblUrunler.resimUrl" width="100" height="100"></td>
+            <td>@Html.Raw(item.tblUrunler.ad.Substring(0, Math.Min(item.tblUrunler.ad.Length, 50))) ...</td>
+            <td>@item.tarih</td>
+            <td>@item.tblUrunler.fiyat TL</td>
+            <td>@item.tblMusteriler1.ad &nbsp;@item.tblMusteriler1.soyad</td>
+            <td>@item.tblMusteriler1.telefon</td>
+            <td>@item.tblMusteriler1.email</td>
+        </tr>
+    }
+    </tbody>
+</table>
+

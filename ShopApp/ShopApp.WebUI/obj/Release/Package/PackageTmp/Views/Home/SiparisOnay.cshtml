@@ -1,0 +1,30 @@
+﻿@using ShopApp.WebUI.Models.Home
+@model ShopApp.WebUI.Models.tblMusteriler
+
+@{
+    ViewBag.Title = "SiparisOnay";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+
+@if (Session["cart"] == null)
+{
+    <div class="alert alert-danger">
+        <strong>Sepetinizde ürün bulunmamaktadır !</strong>
+    </div>
+
+}
+else
+{
+    using (Html.BeginForm("SiparisOnay", "Home", FormMethod.Post))
+    {
+        <div class="alert alert-success">
+
+            <p>@Html.DropDownList("musteri", null, htmlAttributes: new { @class = "form-control" })</p>
+            <p>Ürünlerimi kontrol edip, ödemeyi havale yolu ile gerçekleştirdiğimi onaylıyorum !</p>
+        </div>
+        <button type="submit" class="btn btn-success">Onayla ve Siparişi Bitir !</button>
+    }
+
+}
+

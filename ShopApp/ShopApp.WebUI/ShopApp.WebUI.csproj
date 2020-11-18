@@ -1283,11 +1283,11 @@
     <Compile Include="Controllers\GirisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\SeoHelper.cs" />
+    <Compile Include="Models\Home\Item.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1387,11 +1387,6 @@
     <Content Include="Views\Admin\Cesitler.cshtml" />
     <Content Include="Views\Admin\CesitEkle.cshtml" />
     <Content Include="Views\Admin\CesitDuzenle.cshtml" />
-    <Content Include="Views\Test\Create.cshtml" />
-    <Content Include="Views\Test\Delete.cshtml" />
-    <Content Include="Views\Test\Details.cshtml" />
-    <Content Include="Views\Test\Edit.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Admin\Markalar.cshtml" />
     <Content Include="Views\Admin\MarkaEkle.cshtml" />
     <Content Include="Views\Admin\MarkaDuzenle.cshtml" />
@@ -1435,6 +1430,9 @@
     <Content Include="Views\Home\MenuPartial.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\Sepet.cshtml" />
+    <Content Include="Views\Home\Checkout.cshtml" />
+    <Content Include="Views\Home\CheckoutDetails.cshtml" />
+    <Content Include="Views\Home\SiparisOnay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -36,7 +36,7 @@ namespace ShopApp.WebUI.Controllers
                 Session["resimUrl"] = giris.resimUrl;
                 Session["telefon"] = giris.telefon;
                 Session["resimUrl"] = giris.resimUrl;
-                return RedirectToAction("Index", "Profil");
+                return RedirectToAction("Index", "Home");
             }
           
             @ViewBag.HataliGiris = "Email Adresiniz ve/veya Şifreniz Hatalı !";

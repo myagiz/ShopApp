@@ -1,0 +1,13 @@
+﻿@using ShopApp.WebUI.Helper
+@model IEnumerable<ShopApp.WebUI.Models.tblMenuler>
+
+
+
+
+<ul>
+    <li><a href="/home/">Anasayfa</a></li>
+    @foreach (var item in Model)
+    {
+        <li><a href="/home/@SeoHelper.ToSeoUrl(item.baslik).ToLower()-@item.id">@item.baslik</a></li>
+    }
+</ul>

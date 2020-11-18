@@ -1,0 +1,48 @@
+﻿@model ShopApp.WebUI.Models.tblSiparisKaydi
+@{
+    ViewBag.Title = "SiparisKaydi";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="alert alert-dark" role="alert">
+    Ürün Sepetinizi Onaylamadan Çıkmayınız !
+</div>
+<div class="card-header">
+
+
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-hover" style="width: 100%">
+                <thead>
+                    <tr>
+                        <td>NO</td>
+                        <td>RESİM</td>
+                        <td>ÜRÜN ADI</td>
+                        <td>FİYAT</td>
+                        <td>KALDIR</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>#1</th>
+                        <th><img src="@Model.tblUrunler.resimUrl" width="75" height="45"/></th>
+                        <th>@Html.DisplayFor(Model => Model.tblUrunler.ad)</th>
+                        <th>@Html.DisplayFor(Model => Model.tblUrunler.fiyat) TL</th>
+                        <th><a href="#" class="badge badge-danger">KALDIR</a></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <h1>SİPARİŞ BİLGİLERİNİZ</h1><hr />
+            <p>Ad ve Soyad : @Html.DisplayFor(Model => Model.tblMusteriler1.ad)&nbsp;@Html.DisplayFor(Model => Model.tblMusteriler1.soyad)</p><br />
+            <p>Sipariş Tarihi : @Html.DisplayFor(Model => Model.tarih)</p><br />
+            <p>Adres : @Html.DisplayFor(Model => Model.tblMusteriler1.adres)&nbsp;@Html.DisplayFor(Model => Model.tblMusteriler1.il)&nbsp;@Html.DisplayFor(Model => Model.tblMusteriler1.ilce)</p><br />
+            <p>Telefon : @Html.DisplayFor(Model => Model.tblMusteriler1.telefon)</p><br />
+            <p>Email Adresiniz : @Html.DisplayFor(Model => Model.tblMusteriler1.email)</p><br />
+        </div>
+    </div>
+    <hr />
+    <p align="right"> <button class="btn btn-success">Onayla ve Ödeme Yöntemine Geç</button></p>
+</div>
+

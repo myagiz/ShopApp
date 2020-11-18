@@ -1,0 +1,29 @@
+﻿@model ShopApp.WebUI.Models.tblKategoriler
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-title">Kategori Ekle</div>
+<hr>
+@using (Html.BeginForm("KategoriEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{@Html.AntiForgeryToken()
+    <form>
+        <div class="form-group">
+            <label for="input-6">Kategori Adı</label>
+            @Html.TextBoxFor(x =>x.ad,new {@class= "form-control form-control-rounded",placeholder="Kategori Adı Giriniz..." })
+        </div>
+        <div class="form-group">
+            <label for="input-7">Kategori Açıklaması</label>
+            @Html.TextBoxFor(x => x.aciklama, new { @class = "form-control form-control-rounded", placeholder = "Kategori Açıklaması Giriniz..." })
+        </div>
+        <div class="form-group">
+            <label for="input-9">Resim</label>
+            <input type="file" class="form-control form-control-rounded " name="resimUrl" placeholder="350x350 En Uygun Formattır" accept=".jpg,.png.,.jpeg" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-light btn-round px-5"> Ekle</button>
+        </div>
+
+    </form>
+}

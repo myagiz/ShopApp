@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ModulDuzenle3";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-title">Modul #3 Düzenle</div>
+<hr>
+<p><a class="badge badge-dark">(En Uygun 550X200 Formatıdır)</a></p>
+@using (Html.BeginForm("ModulDuzenle3", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{@Html.AntiForgeryToken()
+    <form>
+        <div class="form-group">
+            <label for="input-6">Modül #3</label>
+            <input type="file" class="form-control form-control-rounded " name="modul3" placeholder="350x350 En Uygun Formattır" accept=".jpg,.png,.jpeg" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-light btn-round px-5"> Düzenle</button>
+        </div>
+
+    </form>
+}
+

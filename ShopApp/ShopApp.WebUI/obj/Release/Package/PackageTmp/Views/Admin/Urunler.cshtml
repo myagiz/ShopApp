@@ -1,0 +1,44 @@
+﻿@using ShopApp.WebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@using ShopApp.WebUI.Helper
+@model PagedList<tblUrunler>
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h7><a href="/admin/urunekle/" class="badge badge-light">Ürün Ekle</a></h7>
+<hr />
+<p>Tüm ürünler listelenmiştir.</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Kod</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Ürün Çeşidi</th>
+            
+            <th scope="col">İncele</th>
+            <th scope="col">Düzenle</th>
+            <th scope="col">Sil</th>
+        </tr>
+        </thead>
+        @foreach (var p in Model)
+        {
+            <tbody>
+                <tr>
+                    <th scope="row">#@p.id</th>
+                    <td>@Html.Raw(p.ad.Substring(0, Math.Min(p.ad.Length, 100))) ...</td>
+                    <td>@p.tblCesitler.ad</td>
+                    <td><a href="/admin/urun/@SeoHelper.ToSeoUrl(p.ad).ToLower()=@p.id" class="btn btn-success">İncele</a></td>
+                    <td><a href="/admin/urunduzenle/@SeoHelper.ToSeoUrl(p.ad).ToLower()=@p.id" class="btn btn-dark">Düzenle</a></td>
+                    <td>@Html.ActionLink("Sil", "UrunSil", new { id = p.id }, new { @class = "btn btn-light", onclick = "return confirm('Ürün Silmek İstediğinize Emin Misiniz?')" })</td>
+                </tr>
+            </tbody>
+        }
+    </table>
+    <ul class="pagination pagination-sm">
+        @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Urunler", new { sayfa }))
+    </ul>
+</div>
+

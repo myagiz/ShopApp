@@ -1,0 +1,9 @@
+﻿@using ShopApp.WebUI.Helper
+@model IEnumerable<ShopApp.WebUI.Models.tblKategoriler>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="/home/kategori/@SeoHelper.ToSeoUrl(item.ad).ToLower()-@item.id">@item.ad<span> (@item.tblUrunler.Count())</span></a></li>
+    }
+</ul>

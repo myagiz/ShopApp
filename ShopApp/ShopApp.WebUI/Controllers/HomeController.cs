@@ -8,31 +8,34 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using PagedList;
 using ShopApp.WebUI.Models;
+using ShopApp.WebUI.Models.Home;
 
 namespace ShopApp.WebUI.Controllers
 {
     public class HomeController : Controller
     {
         // GET: Home
-        ShopAppEntities db=new ShopAppEntities();
+        ShopAppEntities db = new ShopAppEntities();
+
         [Route("")]
         [Route("home")]
-        public ActionResult Index(int sayfa=1)
+        public ActionResult Index(int sayfa = 1)
         {
             ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
-            var urunler = db.tblUrunler.ToList().OrderByDescending(x =>x.id).ToPagedList(sayfa, 8);
+            var urunler = db.tblUrunler.ToList().OrderByDescending(x => x.id).ToPagedList(sayfa, 8);
             return View(urunler);
         }
-       
+
         public ActionResult MenuPartial()
         {
-            return PartialView(db.tblMenuler.ToList().OrderBy(x =>x.id));
+            return PartialView(db.tblMenuler.ToList().OrderBy(x => x.id));
         }
+
         [Route("home/{ad}-{id:int}")]
         public ActionResult Menu(int id)
         {
             ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
-            if (id== null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -52,6 +55,7 @@ namespace ShopApp.WebUI.Controllers
             ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             return PartialView(db.tblKategoriler.Include("tblUrunler").ToList().OrderBy(x => x.ad));
         }
+
         [Route("home/urunincele/{ad}-{id:int}")]
         public ActionResult UrunIncele(int id)
         {
@@ -79,43 +83,46 @@ namespace ShopApp.WebUI.Controllers
         {
             @ViewBag.Iletisim = db.tblIletisim.SingleOrDefault();
             @ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
-            @ViewBag.Kategoriler=db.tblKategoriler.ToList().OrderBy(x =>x.ad);
+            @ViewBag.Kategoriler = db.tblKategoriler.ToList().OrderBy(x => x.ad);
             return PartialView();
         }
+
         [Route("home/kategori/{ad}-{id:int}")]
-        public ActionResult Kategori(int id,int sayfa = 1)
+        public ActionResult Kategori(int id, int sayfa = 1)
         {
             ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
-            var kategori = db.tblUrunler.Include("tblKategoriler").OrderByDescending(x =>x.id).Where(x => x.tblKategoriler.id == id).ToList()
+            var kategori = db.tblUrunler.Include("tblKategoriler").OrderByDescending(x => x.id)
+                .Where(x => x.tblKategoriler.id == id).ToList()
                 .ToPagedList(sayfa, 12);
             return View(kategori);
         }
 
-        public ActionResult SiparisKaydi(int id)
-        {
-            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+        //public ActionResult SiparisKaydi(int id)
+        //{
+        //    ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
 
-            tblSiparisKaydi p = db.tblSiparisKaydi.Find(id);
-            if (p == null)
-            {
-                return HttpNotFound();
-            }
+        //    tblSiparisKaydi p = db.tblSiparisKaydi.Find(id);
+        //    if (p == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
 
-            return View(p);
-        }
+        //    return View(p);
+        //}
 
         public ActionResult KayitOl()
         {
             ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult KayitOl(tblMusteriler p,HttpPostedFileBase resimUrl)
+        public ActionResult KayitOl(tblMusteriler p, HttpPostedFileBase resimUrl)
         {
             if (resimUrl != null)
             {
@@ -128,12 +135,13 @@ namespace ShopApp.WebUI.Controllers
 
                 p.resimUrl = "/Uploads/Profil/" + profilimgname;
             }
+
             db.tblMusteriler.Add(p);
             db.SaveChanges();
-            return RedirectToAction("Index","Giris");
+            return RedirectToAction("Index", "Giris");
         }
 
-        public ActionResult Profil(int id )
+        public ActionResult Profil(int id)
         {
             ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
             if (id == null)
@@ -150,107 +158,127 @@ namespace ShopApp.WebUI.Controllers
             return View(p);
         }
 
-        public ActionResult Sepet()
-        {
-            var urunler = db.tblUrunler.ToList();
-            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
-            return View(urunler);
-        }
+        //public ActionResult Sepet()
+        //{
+          
+        //    ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
+        //    return View();
+        //}
 
-        public ActionResult DecreaseQty(int urunId)
+        public ActionResult Checkout()
         {
-            if (Session["sepet"] != null)
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
+            return View();
+        }
+        public ActionResult CheckoutDetails()
+        {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
+            return View();
+        }
+        public ActionResult DecreaseQty(int productId)
+        {
+            if (Session["cart"] != null)
             {
-                List<tblSiparisKaydi> sepet = (List<tblSiparisKaydi>)Session["sepet"];
-                var product = db.tblUrunler.Find(urunId);
-                foreach (var item in sepet)
+                List<Item> cart = (List<Item>)Session["cart"];
+                var product = db.tblUrunler.Find(productId);
+                foreach (var item in cart)
                 {
-                    if (item.tblUrunler.id == urunId)
+                    if (item.Product.id == productId)
                     {
-                        var prevQty = item.miktar;
+                        int prevQty = item.Quantity;
                         if (prevQty > 0)
                         {
-                            sepet.Remove(item);
-                            sepet.Add(new tblSiparisKaydi()
+                            cart.Remove(item);
+                            cart.Add(new Item()
                             {
-                                tblUrunler = product,
-                                miktar = prevQty - 1
+                                Product = product,
+                                Quantity = prevQty - 1
                             });
                         }
                         break;
                     }
                 }
-                Session["sepet"] = sepet;
+                Session["cart"] = cart;
             }
             return Redirect("Checkout");
         }
-
-        public ActionResult SepeteEkle(int urunId, string url)
+        public ActionResult AddToCart(int productId, string url)
         {
-            if (Session["sepet"]==null)
+            if (Session["cart"] == null)
             {
-                List<tblSiparisKaydi>sepet=new List<tblSiparisKaydi>();
-                var urun = db.tblUrunler.Find(urunId);
-                sepet.Add(new tblSiparisKaydi()
+                List<Item> cart = new List<Item>();
+                var product = db.tblUrunler.Find(productId);
+                cart.Add(new Item()
                 {
-                    tblUrunler = urun,
-                    miktar=1
-                   
+                    Product = product,
+                    Quantity = 1
                 });
-                Session["sepet"] = sepet;
+                Session["cart"] = cart;
             }
             else
             {
-                List<tblSiparisKaydi> sepet = (List <tblSiparisKaydi>) Session["sepet"];
-                var count = sepet.Count;
-                var urun = db.tblUrunler.Find(urunId);
+                List<Item> cart = (List<Item>)Session["cart"];
+                var count = cart.Count();
+                var product = db.tblUrunler.Find(productId);
                 for (int i = 0; i < count; i++)
                 {
-                    if (sepet[i].tblUrunler.id==urunId)
+                    if (cart[i].Product.id == productId)
                     {
-                        var prevQty = sepet[i].miktar;
-                        sepet.Remove(sepet[i]);
-                        sepet.Add(new tblSiparisKaydi()
+                        int prevQty = cart[i].Quantity;
+                        cart.Remove(cart[i]);
+                        cart.Add(new Item()
                         {
-                            tblUrunler = urun,
-                            miktar=prevQty+1
+                            Product = product,
+                            Quantity = prevQty + 1
                         });
                         break;
                     }
                     else
                     {
-                        var p = sepet.Where(x => x.tblUrunler.id == urunId).SingleOrDefault();
-                        if (p==null)
+                        var prd = cart.Where(x => x.Product.id == productId).SingleOrDefault();
+                        if (prd == null)
                         {
-                            sepet.Add(new tblSiparisKaydi()
+                            cart.Add(new Item()
                             {
-                                tblUrunler = urun,
-                                miktar = 1
+                                Product = product,
+                                Quantity = 1
                             });
                         }
                     }
                 }
-
-                Session["sepet"] = sepet;
+                Session["cart"] = cart;
             }
-
             return Redirect(url);
         }
-
-        public ActionResult SepetSil(int urunId)
+        public ActionResult RemoveFromCart(int productId)
         {
-            List<tblSiparisKaydi> sepet = (List<tblSiparisKaydi>)Session["sepet"];
-            foreach (var item in sepet)
+            List<Item> cart = (List<Item>)Session["cart"];
+            foreach (var item in cart)
             {
-                if (item.tblUrunler.id== urunId)
+                if (item.Product.id == productId)
                 {
-                    sepet.Remove(item);
+                    cart.Remove(item);
                     break;
                 }
             }
-            Session["sepet"] = sepet;
-            return Redirect("Index");
+            Session["cart"] = cart;
+            return RedirectToAction("Checkout", "Home");
         }
-        
+
+        public ActionResult SiparisOnay()
+        {
+            ViewBag.Ayarlar = db.tblAyarlar.SingleOrDefault();
+            ViewBag.musteri = new SelectList(db.tblMusteriler, "id", "ad & soyad");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SiparisOnay(tblSiparisKaydi p)
+        {
+            var onay = db.tblSiparisKaydi.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
+
+
     }
 }

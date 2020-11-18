@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblAyarlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="logourl" Type="nvarchar(max)" />
+    <Property Name="baslik" Type="nvarchar(max)" />
+    <Property Name="footer" Type="varchar" MaxLength="150" />
+    <Property Name="modul1" Type="varchar" MaxLength="100" />
+    <Property Name="modul2" Type="varchar" MaxLength="100" />
+    <Property Name="modul3" Type="varchar" MaxLength="100" />
+    <Property Name="title" Type="varchar" MaxLength="200" />
+    <Property Name="hakkimda" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tblCesitler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="aciklama" Type="varchar" MaxLength="100" />
+    <Property Name="resimUrl" Type="varchar(max)" />
+    <Property Name="kategori" Type="int" />
+  </EntityType>
+  <EntityType Name="tblIletisim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="instagram" Type="nvarchar" MaxLength="100" />
+    <Property Name="twitter" Type="nvarchar" MaxLength="100" />
+    <Property Name="facebook" Type="nvarchar" MaxLength="100" />
+    <Property Name="telefon" Type="nvarchar" MaxLength="100" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblKategoriler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="aciklama" Type="varchar" MaxLength="100" />
+    <Property Name="resimUrl" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tblLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="yonetici" Type="int" />
+    <Property Name="detay" Type="varchar(max)" />
+    <Property Name="tarih" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblMarkalar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="100" />
+    <Property Name="resimUrl" Type="nvarchar(max)" />
+    <Property Name="kategori" Type="int" />
+    <Property Name="cesit" Type="int" />
+  </EntityType>
+  <EntityType Name="tblMenuler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="baslik" Type="varchar" MaxLength="50" />
+    <Property Name="metin" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tblMusteriler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="soyad" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="sifre" Type="varchar" MaxLength="100" />
+    <Property Name="adres" Type="varchar" MaxLength="500" />
+    <Property Name="il" Type="varchar" MaxLength="50" />
+    <Property Name="ilce" Type="varchar" MaxLength="100" />
+    <Property Name="resimUrl" Type="nvarchar(max)" />
+    <Property Name="telefon" Type="varchar" MaxLength="20" />
+    <Property Name="sipariskaydi" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSiparisKaydi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="urun" Type="int" />
+    <Property Name="tarih" Type="datetime" />
+    <Property Name="onay" Type="varchar" MaxLength="50" />
+    <Property Name="musteri" Type="int" />
+    <Property Name="miktar" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSlider">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="baslik" Type="varchar" MaxLength="100" />
+    <Property Name="aciklama" Type="varchar" MaxLength="300" />
+    <Property Name="resimUrl" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblStokYonetimi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="kategori" Type="int" />
+    <Property Name="cesit" Type="int" />
+    <Property Name="urun" Type="int" />
+    <Property Name="marka" Type="int" />
+    <Property Name="durum" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblUrunler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="250" />
+    <Property Name="aciklama" Type="varchar(max)" />
+    <Property Name="resimUrl" Type="varchar(max)" />
+    <Property Name="resimUrl2" Type="nvarchar(max)" />
+    <Property Name="resimUrl3" Type="nvarchar(max)" />
+    <Property Name="fiyat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="beden" Type="varchar" MaxLength="250" />
+    <Property Name="olcu" Type="varchar" MaxLength="250" />
+    <Property Name="renk" Type="varchar" MaxLength="50" />
+    <Property Name="indirim" Type="varchar" MaxLength="50" />
+    <Property Name="oylama" Type="varchar" MaxLength="250" />
+    <Property Name="iade" Type="varchar" MaxLength="100" />
+    <Property Name="teslimat" Type="varchar" MaxLength="100" />
+    <Property Name="kategori" Type="int" />
+    <Property Name="stok" Type="int" />
+    <Property Name="marka" Type="int" />
+    <Property Name="cesit" Type="int" />
+    <Property Name="miktar" Type="int" />
+  </EntityType>
+  <EntityType Name="tblYetki">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="aciklama" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tblYonetici">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="soyad" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="aciklama" Type="varchar" MaxLength="75" />
+    <Property Name="telefon" Type="varchar" MaxLength="20" />
+    <Property Name="resimUrl" Type="varchar(max)" />
+    <Property Name="yetki" Type="int" />
+  </EntityType>
+  <Association Name="FK_tblCesitler_tblKategoriler">
+    <End Role="tblKategoriler" Type="Self.tblKategoriler" Multiplicity="0..1" />
+    <End Role="tblCesitler" Type="Self.tblCesitler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKategoriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblCesitler">
+        <PropertyRef Name="kategori" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblLog_tblYonetici">
+    <End Role="tblYonetici" Type="Self.tblYonetici" Multiplicity="0..1" />
+    <End Role="tblLog" Type="Self.tblLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblYonetici">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblLog">
+        <PropertyRef Name="yonetici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMarkalar_tblCesitler">
+    <End Role="tblCesitler" Type="Self.tblCesitler" Multiplicity="0..1" />
+    <End Role="tblMarkalar" Type="Self.tblMarkalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCesitler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblMarkalar">
+        <PropertyRef Name="cesit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMarkalar_tblKategoriler">
+    <End Role="tblKategoriler" Type="Self.tblKategoriler" Multiplicity="0..1" />
+    <End Role="tblMarkalar" Type="Self.tblMarkalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKategoriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblMarkalar">
+        <PropertyRef Name="kategori" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMusteriler_tblSiparisKaydi">
+    <End Role="tblSiparisKaydi" Type="Self.tblSiparisKaydi" Multiplicity="0..1" />
+    <End Role="tblMusteriler" Type="Self.tblMusteriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSiparisKaydi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblMusteriler">
+        <PropertyRef Name="sipariskaydi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSiparisKaydi_tblMusteriler">
+    <End Role="tblMusteriler" Type="Self.tblMusteriler" Multiplicity="0..1" />
+    <End Role="tblSiparisKaydi" Type="Self.tblSiparisKaydi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMusteriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblSiparisKaydi">
+        <PropertyRef Name="musteri" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSiparisKaydi_tblUrunler">
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="0..1" />
+    <End Role="tblSiparisKaydi" Type="Self.tblSiparisKaydi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUrunler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblSiparisKaydi">
+        <PropertyRef Name="urun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStokYonetimi_tblCesitler">
+    <End Role="tblCesitler" Type="Self.tblCesitler" Multiplicity="0..1" />
+    <End Role="tblStokYonetimi" Type="Self.tblStokYonetimi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCesitler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblStokYonetimi">
+        <PropertyRef Name="cesit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStokYonetimi_tblKategoriler">
+    <End Role="tblKategoriler" Type="Self.tblKategoriler" Multiplicity="0..1" />
+    <End Role="tblStokYonetimi" Type="Self.tblStokYonetimi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKategoriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblStokYonetimi">
+        <PropertyRef Name="kategori" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStokYonetimi_tblMarkalar">
+    <End Role="tblMarkalar" Type="Self.tblMarkalar" Multiplicity="0..1" />
+    <End Role="tblStokYonetimi" Type="Self.tblStokYonetimi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMarkalar">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblStokYonetimi">
+        <PropertyRef Name="marka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblStokYonetimi_tblUrunler">
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="0..1" />
+    <End Role="tblStokYonetimi" Type="Self.tblStokYonetimi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUrunler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblStokYonetimi">
+        <PropertyRef Name="urun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUrunler_tblCesitler">
+    <End Role="tblCesitler" Type="Self.tblCesitler" Multiplicity="0..1" />
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCesitler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblUrunler">
+        <PropertyRef Name="cesit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUrunler_tblKategoriler">
+    <End Role="tblKategoriler" Type="Self.tblKategoriler" Multiplicity="0..1" />
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKategoriler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblUrunler">
+        <PropertyRef Name="kategori" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUrunler_tblMarkalar">
+    <End Role="tblMarkalar" Type="Self.tblMarkalar" Multiplicity="0..1" />
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMarkalar">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblUrunler">
+        <PropertyRef Name="marka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUrunler_tblStokYonetimi">
+    <End Role="tblStokYonetimi" Type="Self.tblStokYonetimi" Multiplicity="0..1" />
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStokYonetimi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblUrunler">
+        <PropertyRef Name="stok" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblYonetici_tblYetki">
+    <End Role="tblYetki" Type="Self.tblYetki" Multiplicity="0..1" />
+    <End Role="tblYonetici" Type="Self.tblYonetici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblYetki">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblYonetici">
+        <PropertyRef Name="yetki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShopAppModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAyarlar" EntityType="Self.tblAyarlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCesitler" EntityType="Self.tblCesitler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblIletisim" EntityType="Self.tblIletisim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKategoriler" EntityType="Self.tblKategoriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLog" EntityType="Self.tblLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMarkalar" EntityType="Self.tblMarkalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMenuler" EntityType="Self.tblMenuler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMusteriler" EntityType="Self.tblMusteriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSiparisKaydi" EntityType="Self.tblSiparisKaydi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSlider" EntityType="Self.tblSlider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStokYonetimi" EntityType="Self.tblStokYonetimi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUrunler" EntityType="Self.tblUrunler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblYetki" EntityType="Self.tblYetki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblYonetici" EntityType="Self.tblYonetici" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblCesitler_tblKategoriler" Association="Self.FK_tblCesitler_tblKategoriler">
+      <End Role="tblKategoriler" EntitySet="tblKategoriler" />
+      <End Role="tblCesitler" EntitySet="tblCesitler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblLog_tblYonetici" Association="Self.FK_tblLog_tblYonetici">
+      <End Role="tblYonetici" EntitySet="tblYonetici" />
+      <End Role="tblLog" EntitySet="tblLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMarkalar_tblCesitler" Association="Self.FK_tblMarkalar_tblCesitler">
+      <End Role="tblCesitler" EntitySet="tblCesitler" />
+      <End Role="tblMarkalar" EntitySet="tblMarkalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMarkalar_tblKategoriler" Association="Self.FK_tblMarkalar_tblKategoriler">
+      <End Role="tblKategoriler" EntitySet="tblKategoriler" />
+      <End Role="tblMarkalar" EntitySet="tblMarkalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMusteriler_tblSiparisKaydi" Association="Self.FK_tblMusteriler_tblSiparisKaydi">
+      <End Role="tblSiparisKaydi" EntitySet="tblSiparisKaydi" />
+      <End Role="tblMusteriler" EntitySet="tblMusteriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSiparisKaydi_tblMusteriler" Association="Self.FK_tblSiparisKaydi_tblMusteriler">
+      <End Role="tblMusteriler" EntitySet="tblMusteriler" />
+      <End Role="tblSiparisKaydi" EntitySet="tblSiparisKaydi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSiparisKaydi_tblUrunler" Association="Self.FK_tblSiparisKaydi_tblUrunler">
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+      <End Role="tblSiparisKaydi" EntitySet="tblSiparisKaydi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStokYonetimi_tblCesitler" Association="Self.FK_tblStokYonetimi_tblCesitler">
+      <End Role="tblCesitler" EntitySet="tblCesitler" />
+      <End Role="tblStokYonetimi" EntitySet="tblStokYonetimi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStokYonetimi_tblKategoriler" Association="Self.FK_tblStokYonetimi_tblKategoriler">
+      <End Role="tblKategoriler" EntitySet="tblKategoriler" />
+      <End Role="tblStokYonetimi" EntitySet="tblStokYonetimi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStokYonetimi_tblMarkalar" Association="Self.FK_tblStokYonetimi_tblMarkalar">
+      <End Role="tblMarkalar" EntitySet="tblMarkalar" />
+      <End Role="tblStokYonetimi" EntitySet="tblStokYonetimi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblStokYonetimi_tblUrunler" Association="Self.FK_tblStokYonetimi_tblUrunler">
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+      <End Role="tblStokYonetimi" EntitySet="tblStokYonetimi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUrunler_tblCesitler" Association="Self.FK_tblUrunler_tblCesitler">
+      <End Role="tblCesitler" EntitySet="tblCesitler" />
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUrunler_tblKategoriler" Association="Self.FK_tblUrunler_tblKategoriler">
+      <End Role="tblKategoriler" EntitySet="tblKategoriler" />
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUrunler_tblMarkalar" Association="Self.FK_tblUrunler_tblMarkalar">
+      <End Role="tblMarkalar" EntitySet="tblMarkalar" />
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUrunler_tblStokYonetimi" Association="Self.FK_tblUrunler_tblStokYonetimi">
+      <End Role="tblStokYonetimi" EntitySet="tblStokYonetimi" />
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblYonetici_tblYetki" Association="Self.FK_tblYonetici_tblYetki">
+      <End Role="tblYetki" EntitySet="tblYetki" />
+      <End Role="tblYonetici" EntitySet="tblYonetici" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
