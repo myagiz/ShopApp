@@ -33,7 +33,7 @@
                     <td>@p.tblKategoriler.ad</td>
                     <td>@p.ad</td>
                     <td>@p.aciklama</td>
-                    <td><a href="/admin/cesitduzenle/@SeoHelper.ToSeoUrl(p.ad).ToLower()-@p.id" class="btn btn-dark">Düzenle</a></td>
+                    <td><a href="/admin/cesitduzenle/@p.id" class="btn btn-dark">Düzenle</a></td>
                     <td>@Html.ActionLink("Sil", "CesitSil", new { id = p.id }, new { @class = "btn btn-light", onclick = "return confirm('Çeşit Silmek İstediğinize Emin Misiniz?')" })</td>
                 </tr>
             </tbody>

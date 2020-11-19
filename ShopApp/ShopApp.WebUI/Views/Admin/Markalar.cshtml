@@ -33,7 +33,7 @@
                     <td>@p.tblKategoriler.ad</td>
                     <td>@p.tblCesitler.ad</td>
                     <td><img src="@p.resimUrl" width="150" height="75" /></td>
-                    <td><a href="/admin/markaduzenle/@SeoHelper.ToSeoUrl(p.ad).ToLower()-@p.id" class="btn btn-dark">Düzenle</a></td>
+                    <td><a href="/admin/markaduzenle/@p.id" class="btn btn-dark">Düzenle</a></td>
                     <td>@Html.ActionLink("Sil", "MarkaSil", new { id = p.id }, new { @class = "btn btn-light", onclick = "return confirm('Marka Silmek İstediğinize Emin Misiniz?')" })</td>
                 </tr>
             </tbody>

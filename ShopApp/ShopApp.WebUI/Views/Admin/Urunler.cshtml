@@ -31,7 +31,7 @@
                     <td>@Html.Raw(p.ad.Substring(0, Math.Min(p.ad.Length, 100))) ...</td>
                     <td>@p.tblCesitler.ad</td>
                     <td><a href="/admin/urun/@SeoHelper.ToSeoUrl(p.ad).ToLower()=@p.id" class="btn btn-success">İncele</a></td>
-                    <td><a href="/admin/urunduzenle/@SeoHelper.ToSeoUrl(p.ad).ToLower()=@p.id" class="btn btn-dark">Düzenle</a></td>
+                    <td><a href="/admin/urunduzenle/@p.id" class="btn btn-dark">Düzenle</a></td>
                     <td>@Html.ActionLink("Sil", "UrunSil", new { id = p.id }, new { @class = "btn btn-light", onclick = "return confirm('Ürün Silmek İstediğinize Emin Misiniz?')" })</td>
                 </tr>
             </tbody>

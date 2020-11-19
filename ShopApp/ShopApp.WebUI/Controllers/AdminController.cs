@@ -146,7 +146,7 @@ namespace ShopApp.WebUI.Controllers
             return RedirectToAction("Kategoriler");
         }
 
-        [Route("admin/kategoriduzenle/{ad}-{id:int}")]
+       
         [HttpGet]
         public ActionResult KategoriDuzenle(int id)
         {
@@ -217,7 +217,7 @@ namespace ShopApp.WebUI.Controllers
             return RedirectToAction("Cesitler");
         }
 
-        [Route("admin/cesitduzenle/{ad}-{id:int}")]
+       
         public ActionResult CesitDuzenle(int id)
         {
             var cesitduzenle = db.tblCesitler.Where(x => x.id == id).SingleOrDefault();
@@ -286,7 +286,7 @@ namespace ShopApp.WebUI.Controllers
             db.SaveChanges();
             return RedirectToAction("Markalar");
         }
-        [Route("admin/markaduzenle/{ad}-{id:int}")]
+       
         public ActionResult MarkaDuzenle(int id)
         {
             var markaduzenle = db.tblMarkalar.Where(x => x.id == id).SingleOrDefault();
@@ -391,7 +391,7 @@ namespace ShopApp.WebUI.Controllers
             db.SaveChanges();
             return RedirectToAction("Urunler");
         }
-        [Route("admin/urunduzenle/{ad}={id:int}")]
+        
         public ActionResult UrunDuzenle(int id)
         {
             var urunduzenle = db.tblUrunler.Where(x => x.id == id).SingleOrDefault();
@@ -483,7 +483,7 @@ namespace ShopApp.WebUI.Controllers
             db.SaveChanges();
             return RedirectToAction("SliderYoneticisi");
         }
-        [Route("admin/sliderduzenle/{ad}-{id:int}")]
+      
         public ActionResult SliderDuzenle(int id)
         {
             var sliderduzenle = db.tblSlider.Where(x => x.id == id).SingleOrDefault();

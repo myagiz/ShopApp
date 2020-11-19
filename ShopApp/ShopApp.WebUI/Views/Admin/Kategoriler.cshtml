@@ -32,7 +32,7 @@
                     <td>@p.ad</td>
                     <td>@p.aciklama</td>
                     <td><img src="@p.resimUrl" width="150" height="75" /></td>
-                    <td><a href="/admin/kategoriduzenle/@SeoHelper.ToSeoUrl(p.ad).ToLower()-@p.id" class="btn btn-dark">Düzenle</a></td>
+                    <td><a href="/admin/kategoriduzenle/@p.id" class="btn btn-dark">Düzenle</a></td>
                     <td>@Html.ActionLink("Sil", "KategoriSil", new { id = p.id }, new { @class = "btn btn-light", onclick = "return confirm('Kategori Silmek İstediğinize Emin Misiniz?')" })</td>
                 </tr>
             </tbody>
